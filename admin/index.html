@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Order Manager — fatosistore.com</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .admin-header { background: var(--primary-dark); padding: 50px 20px; text-align: center; color: var(--white); }
+    .admin-header h1 { font-size: 32px; margin-bottom: 4px; }
+    .admin-header p { opacity: 0.8; font-size: 14px; }
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .stat-card {
+      background: var(--white);
+      padding: 20px;
+      border-radius: var(--radius);
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    .stat-card .number { font-size: 28px; font-weight: 700; color: var(--primary); }
+    .stat-card .label { font-size: 13px; color: var(--text-light); margin-top: 4px; }
+    .admin-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .clear-btn {
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: var(--font);
+    }
+    .clear-btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="logo">fatosistore<span>.</span></a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../shop.html">Shop</a>
+        <a href="../admin/index.html" style="color:var(--accent);">📋 Orders</a>
+      </nav>
+      <div class="header-actions">
+        <a href="../cart.html" class="cart-icon">🛒 <span class="cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="admin-header">
+    <h1>📋 Order Manager</h1>
+    <p>View customer orders from fatosistore.com</p>
+  </div>
+
+  <section class="admin-page">
+    <div class="container">
+      <div class="stats-bar" id="stats-bar"></div>
+      <div class="admin-nav">
+        <span id="order-count" style="font-weight:600;color:var(--text-light);"></span>
+        <button class="clear-btn" onclick="clearAllOrders()">🗑️ Clear All Orders</button>
+      </div>
+      <div class="admin-orders"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="../index.html" class="logo">fatosistore<span>.</span></a>
+          <p>Your trusted shop for artificial plants, toys, remote cars, and home decor.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="../shop.html">All Products</a>
+          <a href="../about.html">About Us</a>
+          <a href="../contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <a href="../shop.html?category=artificial-plants">Artificial Plants</a>
+          <a href="../shop.html?category=toys-remote">Remote Cars</a>
+          <a href="../shop.html?category=toys">Toys</a>
+          <a href="../shop.html?category=home-decor">Home Decor</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 fatosistore.com. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/products.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    function loadStats(orders) {
+      const bar = document.getElementById('stats-bar');
+      const totalOrders = orders.length;
+      const totalRevenue = orders.reduce((sum, o) => sum + o.total, 0);
+      const totalItems = orders.reduce((sum, o) => sum + o.items.reduce((s, i) => s + i.quantity, 0), 0);
+
+      bar.innerHTML = `
+        <div class="stat-card"><div class="number">${totalOrders}</div><div class="label">Total Orders</div></div>
+        <div class="stat-card"><div class="number">${formatPrice(totalRevenue)}</div><div class="label">Total Revenue</div></div>
+        <div class="stat-card"><div class="number">${totalItems}</div><div class="label">Items Sold</div></div>
+      `;
+    }
+
+    function clearAllOrders() {
+      if (confirm('Delete ALL orders? This cannot be undone.')) {
+        localStorage.removeItem('fatosistore_orders');
+        document.querySelector('.admin-orders').innerHTML = '<div class="admin-empty"><h2>No orders yet</h2><p>All orders have been cleared.</p></div>';
+        document.getElementById('order-count').textContent = '0 orders';
+        loadStats([]);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const orders = JSON.parse(localStorage.getItem('fatosistore_orders') || '[]');
+      document.getElementById('order-count').textContent = `${orders.length} order${orders.length !== 1 ? 's' : ''}`;
+      loadStats(orders);
+      loadAdminOrders();
+    });
+  </script>
+</body>
+</html>

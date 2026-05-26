@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — fatosistore.com</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="announcement-bar">🚚 Free shipping on orders over 50 € • Cash on delivery</div>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">fatosistore<span>.</span></a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="cart.html" class="cart-icon" aria-label="Shopping cart">
+          🛒 <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="checkout-section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
+        <div>
+          <h1>Checkout</h1>
+          <p class="section-subtitle" style="text-align:left;">Fill in your details and we'll deliver to your door</p>
+
+          <form id="checkout-form" class="checkout-form">
+            <div class="form-group">
+              <label for="customer-name">Full Name *</label>
+              <input type="text" id="customer-name" placeholder="e.g. John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="customer-phone">Phone Number *</label>
+              <input type="tel" id="customer-phone" placeholder="e.g. +355 69 123 4567" required>
+            </div>
+            <div class="form-group">
+              <label for="customer-address">Delivery Address *</label>
+              <input type="text" id="customer-address" placeholder="Street, building, apartment number" required>
+            </div>
+            <div class="form-group">
+              <label for="customer-city">City / Town *</label>
+              <input type="text" id="customer-city" placeholder="e.g. Tirana" required>
+            </div>
+            <div class="form-group">
+              <label for="order-notes">Additional Notes</label>
+              <textarea id="order-notes" placeholder="Any special instructions for delivery?"></textarea>
+            </div>
+
+            <p style="font-size:14px;color:var(--text-light);margin-bottom:16px;">
+              💵 <strong>Payment:</strong> Cash on delivery — you pay when your order arrives.
+            </p>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;font-size:16px;padding:14px;">
+              ✅ Place Order (Cash on Delivery)
+            </button>
+          </form>
+        </div>
+
+        <div>
+          <div class="order-summary">
+            <h3>Order Summary</h3>
+            <div id="order-items"></div>
+          </div>
+          <div class="order-total" style="background:var(--white);padding:16px 24px;border-radius:var(--radius-sm);border:1px solid var(--border);display:flex;justify-content:space-between;font-weight:700;font-size:18px;margin-top:12px;">
+            <span>Total (with shipping)</span>
+            <span id="total-amount">0.00 €</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="index.html" class="logo">fatosistore<span>.</span></a>
+          <p>Your trusted shop for artificial plants, toys, remote cars, and home decor. Cash on delivery across Albania.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="shop.html">All Products</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <a href="shop.html?category=artificial-plants">Artificial Plants</a>
+          <a href="shop.html?category=toys-remote">Remote Cars</a>
+          <a href="shop.html?category=toys">Toys</a>
+          <a href="shop.html?category=home-decor">Home Decor</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+355XXXXXXXX">📞 +355 XX XXX XXXX</a>
+          <a href="mailto:info@fatosistore.com">✉️ info@fatosistore.com</a>
+          <a href="contact.html">📍 Albania</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 fatosistore.com. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', loadCheckout);
+  </script>
+</body>
+</html>

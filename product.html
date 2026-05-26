@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — fatosistore.com</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="announcement-bar">🚚 Free shipping on orders over 50 € • Cash on delivery</div>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">fatosistore<span>.</span></a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="cart.html" class="cart-icon" aria-label="Shopping cart">
+          🛒 <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="product-detail">
+    <div class="container">
+      <a href="shop.html" style="display:inline-block;margin-bottom:20px;color:var(--primary);font-weight:500;">← Back to Shop</a>
+      <div class="product-detail-grid">
+        <img src="images/placeholder-plant.svg" alt="Product" class="product-detail-image" id="product-image">
+        <div class="product-detail-info">
+          <div class="product-category">Category</div>
+          <h1>Product Name</h1>
+          <div class="price">0.00 €</div>
+          <p class="description">Product description here.</p>
+          <ul class="details-list" style="margin-bottom:20px;padding-left:20px;">
+            <li style="color:var(--text-light);font-size:14px;margin-bottom:4px;">Feature details</li>
+          </ul>
+          <div class="qty-control">
+            <button class="qty-btn">−</button>
+            <span class="qty-value">1</span>
+            <button class="qty-btn">+</button>
+          </div>
+          <button class="btn btn-primary" style="font-size:16px;padding:14px 36px;">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="index.html" class="logo">fatosistore<span>.</span></a>
+          <p>Your trusted shop for artificial plants, toys, remote cars, and home decor. Cash on delivery across Albania.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="shop.html">All Products</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <a href="shop.html?category=artificial-plants">Artificial Plants</a>
+          <a href="shop.html?category=toys-remote">Remote Cars</a>
+          <a href="shop.html?category=toys">Toys</a>
+          <a href="shop.html?category=home-decor">Home Decor</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+355XXXXXXXX">📞 +355 XX XXX XXXX</a>
+          <a href="mailto:info@fatosistore.com">✉️ info@fatosistore.com</a>
+          <a href="contact.html">📍 Albania</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 fatosistore.com. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', loadProductDetail);
+  </script>
+</body>
+</html>
