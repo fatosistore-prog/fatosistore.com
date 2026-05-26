@@ -205,10 +205,13 @@ function loadCheckout() {
         total: getCartTotal(cart) + (getCartTotal(cart) >= 50 ? 0 : 5.00)
       };
 
-      // Save order to localStorage (seller can see it in admin.html)
+      // Save order to localStorage
       const orders = JSON.parse(localStorage.getItem('fatosistore_orders') || '[]');
       orders.push(order);
       localStorage.setItem('fatosistore_orders', JSON.stringify(orders));
+
+      // Send Telegram notification
+      sendTelegramNotification(order);
 
       // Clear cart
       clearCart();
@@ -252,6 +255,38 @@ function loadAdminOrders() {
       </div>
     </div>
   `).join('');
+}
+
+// --- Telegram Notification ---
+function sendTelegramNotification(order) {
+  const token = '8824963479:AAFbY8y9eAXhRLEeLVlPS1gyB3zPdikGMcc';
+  const chatId = '8526963580';
+
+  const itemsList = order.items.map(i => `• ${i.name} × ${i.quantity} = ${formatPrice(i.subtotal)}`).join('\n');
+
+  const message = `🛒 **NEW ORDER!** 🛒
+━━━━━━━━━━━━━━━
+👤 ${order.customer.name}
+📞 ${order.customer.phone}
+📍 ${order.customer.address}, ${order.customer.city}
+${order.customer.notes !== '-' ? `📝 ${order.customer.notes}` : ''}
+━━━━━━━━━━━━━━━
+📦 Items:
+${itemsList}
+━━━━━━━━━━━━━━━
+💰 **Total: ${formatPrice(order.total)}**
+🆔 ${order.id}
+📅 ${order.date}`;
+
+  fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: message,
+      parse_mode: 'Markdown'
+    })
+  }).catch(err => console.error('Telegram notify error:', err));
 }
 
 // --- Load Confirmation Page ---
