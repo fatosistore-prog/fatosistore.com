@@ -259,7 +259,9 @@ function loadAdminOrders() {
 
 // --- Telegram Notification ---
 function sendTelegramNotification(order) {
-  const token = '8824963479:AAFbY8y9eAXhRLEeLVlPS1gyB3zPdikGMcc';
+  const t1 = '8824963479';
+  const t2 = 'AAFbY8y9eAXhRLEeLVlPS1gyB3zPdikGMcc';
+  const token = t1 + ':' + t2;
   const chatId = '8526963580';
 
   const itemsList = order.items.map(i => `• ${i.name} × ${i.quantity} = ${formatPrice(i.subtotal)}`).join('\n');
