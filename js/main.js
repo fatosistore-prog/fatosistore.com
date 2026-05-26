@@ -259,14 +259,14 @@ function loadAdminOrders() {
 
 // --- Telegram Notification ---
 function sendTelegramNotification(order) {
-  const t1 = '8824963479';
-  const t2 = 'AAFbY8y9eAXhRLEeLVlPS1gyB3zPdikGMcc';
+  const t1 = '8794130383';
+  const t2 = 'AAF0iaKniURH9wjtBD711krXAK2zVOfbLns';
   const token = t1 + ':' + t2;
   const chatId = '8526963580';
 
   const itemsList = order.items.map(i => `• ${i.name} × ${i.quantity} = ${formatPrice(i.subtotal)}`).join('\n');
 
-  const message = `🛒 **NEW ORDER!** 🛒
+  const message = `🛒 NEW ORDER! 🛒
 ━━━━━━━━━━━━━━━
 👤 ${order.customer.name}
 📞 ${order.customer.phone}
@@ -276,19 +276,21 @@ ${order.customer.notes !== '-' ? `📝 ${order.customer.notes}` : ''}
 📦 Items:
 ${itemsList}
 ━━━━━━━━━━━━━━━
-💰 **Total: ${formatPrice(order.total)}**
+💰 Total: ${formatPrice(order.total)}
 🆔 ${order.id}
 📅 ${order.date}`;
 
+  // Send via no-cors (form data) — works from any browser
+  const formData = new URLSearchParams();
+  formData.append('chat_id', chatId);
+  formData.append('text', message);
+  formData.append('parse_mode', 'Markdown');
+
   fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: message,
-      parse_mode: 'Markdown'
-    })
-  }).catch(err => console.error('Telegram notify error:', err));
+    mode: 'no-cors',
+    body: formData
+  });
 }
 
 // --- Load Confirmation Page ---
