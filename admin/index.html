@@ -44,9 +44,87 @@
       font-family: var(--font);
     }
     .clear-btn:hover { opacity: 0.9; }
+
+    /* --- Password Gate --- */
+    .login-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .login-box {
+      background: var(--white);
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+    .login-box .lock-icon { font-size: 48px; margin-bottom: 12px; }
+    .login-box h2 { font-size: 24px; margin-bottom: 4px; }
+    .login-box p { color: var(--text-light); font-size: 14px; margin-bottom: 24px; }
+    .login-box input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 16px;
+      font-family: var(--font);
+      margin-bottom: 16px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .login-box input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.1);
+    }
+    .login-box .btn { width: 100%; font-size: 16px; padding: 14px; }
+    .login-error {
+      color: var(--accent);
+      font-size: 14px;
+      margin-top: 12px;
+      display: none;
+    }
+    .login-error.show { display: block; }
+
+    .admin-content { display: none; }
+    .admin-content.unlocked { display: block; }
+
+    .logout-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-light);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 12px;
+      font-family: var(--font);
+      transition: var(--transition);
+    }
+    .logout-btn:hover { border-color: var(--accent); color: var(--accent); }
   </style>
 </head>
 <body>
+
+  <!-- Password Gate -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-box">
+      <div class="lock-icon">🔐</div>
+      <h2>Admin Access</h2>
+      <p>Enter password to view orders</p>
+      <input type="password" id="passwordInput" placeholder="Enter password..." autocomplete="off">
+      <button class="btn btn-primary" onclick="checkPassword()">Unlock →</button>
+      <div class="login-error" id="loginError">❌ Wrong password. Try again.</div>
+    </div>
+  </div>
+
+  <!-- Login Success Sound -->
+  <div id="adminContent" class="admin-content">
 
   <header>
     <div class="header-inner">
@@ -69,11 +147,14 @@
 
   <section class="admin-page">
     <div class="container">
-      <div class="stats-bar" id="stats-bar"></div>
       <div class="admin-nav">
         <span id="order-count" style="font-weight:600;color:var(--text-light);"></span>
-        <button class="clear-btn" onclick="clearAllOrders()">🗑️ Clear All Orders</button>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button class="logout-btn" onclick="lockAdmin()">🔒 Lock</button>
+          <button class="clear-btn" onclick="clearAllOrders()">🗑️ Clear All Orders</button>
+        </div>
       </div>
+      <div class="stats-bar" id="stats-bar"></div>
       <div class="admin-orders"></div>
     </div>
   </section>
@@ -105,10 +186,78 @@
     </div>
   </footer>
 
+  </div>
+
   <script src="../js/products.js"></script>
   <script src="../js/cart.js"></script>
   <script src="../js/main.js"></script>
   <script>
+    // --- Password Protection ---
+    // SHA-256 hash of the admin password
+    const ADMIN_HASH = '55bd867f6af302f98462f19122befc8f36fc08d28eac1b6b8f9ac4cc2bddb05f';
+    const SESSION_KEY = 'fatosistore_admin_unlocked';
+
+    function sha256(str) {
+      // Simple SHA-256 using Web Crypto API
+      const encoder = new TextEncoder();
+      const data = encoder.encode(str);
+      return crypto.subtle.digest('SHA-256', data).then(hash => {
+        return Array.from(new Uint8Array(hash))
+          .map(b => b.toString(16).padStart(2, '0'))
+          .join('');
+      });
+    }
+
+    function checkPassword() {
+      const input = document.getElementById('passwordInput');
+      const error = document.getElementById('loginError');
+      const password = input.value;
+
+      sha256(password).then(hash => {
+        if (hash === ADMIN_HASH) {
+          sessionStorage.setItem(SESSION_KEY, 'true');
+          unlockAdmin();
+        } else {
+          error.classList.add('show');
+          input.value = '';
+          input.focus();
+          setTimeout(() => error.classList.remove('show'), 3000);
+        }
+      });
+    }
+
+    function unlockAdmin() {
+      document.getElementById('loginOverlay').style.display = 'none';
+      document.getElementById('adminContent').classList.add('unlocked');
+      // Load admin data
+      const orders = JSON.parse(localStorage.getItem('fatosistore_orders') || '[]');
+      document.getElementById('order-count').textContent = `${orders.length} order${orders.length !== 1 ? 's' : ''}`;
+      loadStats(orders);
+      loadAdminOrders();
+    }
+
+    function lockAdmin() {
+      sessionStorage.removeItem(SESSION_KEY);
+      document.getElementById('adminContent').classList.remove('unlocked');
+      document.getElementById('loginOverlay').style.display = 'flex';
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('passwordInput').focus();
+    }
+
+    // Check session on load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+        unlockAdmin();
+      }
+      // Enter key support
+      document.getElementById('passwordInput').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') checkPassword();
+      });
+      // Auto-focus password input
+      document.getElementById('passwordInput').focus();
+    });
+
+    // --- Admin functions ---
     function loadStats(orders) {
       const bar = document.getElementById('stats-bar');
       const totalOrders = orders.length;
@@ -130,13 +279,6 @@
         loadStats([]);
       }
     }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const orders = JSON.parse(localStorage.getItem('fatosistore_orders') || '[]');
-      document.getElementById('order-count').textContent = `${orders.length} order${orders.length !== 1 ? 's' : ''}`;
-      loadStats(orders);
-      loadAdminOrders();
-    });
   </script>
 </body>
 </html>
