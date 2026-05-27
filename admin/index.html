@@ -193,37 +193,24 @@
   <script src="../js/main.js"></script>
   <script>
     // --- Password Protection ---
-    // SHA-256 hash of the admin password
-    const ADMIN_HASH = '55bd867f6af302f98462f19122befc8f36fc08d28eac1b6b8f9ac4cc2bddb05f';
+    // Base64-encoded password (works without HTTPS)
+    const ADMIN_PASS_B64 = 'S3JlbWJhbmFuamE=';
     const SESSION_KEY = 'fatosistore_admin_unlocked';
-
-    function sha256(str) {
-      // Simple SHA-256 using Web Crypto API
-      const encoder = new TextEncoder();
-      const data = encoder.encode(str);
-      return crypto.subtle.digest('SHA-256', data).then(hash => {
-        return Array.from(new Uint8Array(hash))
-          .map(b => b.toString(16).padStart(2, '0'))
-          .join('');
-      });
-    }
 
     function checkPassword() {
       const input = document.getElementById('passwordInput');
       const error = document.getElementById('loginError');
       const password = input.value;
 
-      sha256(password).then(hash => {
-        if (hash === ADMIN_HASH) {
-          sessionStorage.setItem(SESSION_KEY, 'true');
-          unlockAdmin();
-        } else {
-          error.classList.add('show');
-          input.value = '';
-          input.focus();
-          setTimeout(() => error.classList.remove('show'), 3000);
-        }
-      });
+      if (btoa(password) === ADMIN_PASS_B64) {
+        sessionStorage.setItem(SESSION_KEY, 'true');
+        unlockAdmin();
+      } else {
+        error.classList.add('show');
+        input.value = '';
+        input.focus();
+        setTimeout(() => error.classList.remove('show'), 3000);
+      }
     }
 
     function unlockAdmin() {
