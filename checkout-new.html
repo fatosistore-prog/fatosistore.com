@@ -130,7 +130,9 @@
       orders.push(order);
       localStorage.setItem('fatosi_orders', JSON.stringify(orders));
       localStorage.removeItem('fatosi_cart');
+      // Send Telegram notification
 
+      // Show confirmation
       // Show confirmation
       document.querySelector('.checkout-section').innerHTML = `
         <div class="confirmation-section">
@@ -142,6 +144,17 @@
           <a href="index-new.html" class="btn" style="display:inline-block; margin-top:24px; background:var(--primary); color:white; padding:14px 28px; border-radius:var(--radius-sm); font-weight:700;">← Kthehu në Dyqan</a>
         </div>
       `;
+    }
+
+    // Telegram notification
+    function sendTelegramNotification(order) {
+      const token = '8794130383:AAF0iaKniURH9wjtBD711krXAK2zVOfbLns';
+      const chatId = '8526963580';
+      const items = order.items.map(i => `- ${i.name} x${i.quantity}: ${formatPrice(i.price * i.quantity)}`).join('%0A');
+      const msg = `🛒 POROSI E RE!%0A%0AID: ${order.id}%0AKlienti: ${order.customer.firstName} ${order.customer.lastName}%0ATel: ${order.customer.phone}%0AAdresa: ${order.customer.address}%0A%0AProduktet:%0A${items}%0A%0APosta: ${formatPrice(order.shipping)}%0ATOTALI: ${formatPrice(order.total)}%0A%0APagesa në dorëzim 💵`;
+      fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${msg}&parse_mode=HTML`)
+        .then(r => console.log('Telegram notified'))
+        .catch(e => console.log('Telegram error:', e));
     }
 
     renderSummary();
