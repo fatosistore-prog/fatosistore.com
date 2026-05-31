@@ -177,7 +177,7 @@
     <div class="product-modal">
       <button class="close-btn" onclick="closeProductModal()">✕</button>
       <h2 id="modalTitle">Shto Produkt</h2>
-      <form id="productForm" onsubmit="saveProduct(event)">
+      <form id="productForm" onsubmit="event.preventDefault(); if(typeof saveProduct==='function') saveProduct(event);">
         <input type="hidden" id="editId" value="">
         <div class="form-group">
           <label>Emri i Produktit *</label>
@@ -242,7 +242,7 @@ https://example.com/foto3.jpg"></textarea>
           <textarea id="pDescription" placeholder="Përshkrimi i produktit..."></textarea>
         </div>
         <div style="display:flex; gap:12px; margin-top:24px;">
-          <button type="submit" class="btn-primary" style="flex:1;">💾 Ruaj Produktin</button>
+          <button type="button" class="btn-primary" style="flex:1;" onclick="saveProduct(event)">💾 Ruaj Produktin</button>
           <button type="button" class="btn-secondary" onclick="closeProductModal()">Anulo</button>
         </div>
       </form>
@@ -395,7 +395,7 @@ https://example.com/foto3.jpg"></textarea>
     }
 
     function saveProduct(e) {
-      e.preventDefault();
+      if(e && e.preventDefault) e.preventDefault();
       const products = getProducts();
       const editId = document.getElementById('editId').value;
       const categoryLabels = {
