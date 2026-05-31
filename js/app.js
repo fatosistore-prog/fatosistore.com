@@ -27,21 +27,21 @@ const DEFAULT_PRODUCTS = [
   },
   {
     id: 4, name: "Makinë Elektrike Audi R8 për Fëmijë", category: "lodra-femije",
-    categoryLabel: "Makina me Pult", price: 8900, oldPrice: 11000,
+    categoryLabel: "Lodra për Fëmijë", price: 8900, oldPrice: 11000,
     image: "https://images.unsplash.com/photo-1581235707960-23b7e8b9b8c9?w=400&h=300&fit=crop",
     description: "Makinë elektrike me telekomandë Audi R8 për fëmijë 2-5 vjeç. Dizajn realist, e lehtë për t'u përdorur dhe e sigurt për brenda shtëpisë.",
     shipping: 500, badge: "hot", stock: 5
   },
   {
     id: 5, name: "Jeep 12V për Fëmijë me Pult", category: "lodra-femije",
-    categoryLabel: "Makina me Pult", price: 18900, oldPrice: 22000,
+    categoryLabel: "Lodra për Fëmijë", price: 18900, oldPrice: 22000,
     image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=300&fit=crop",
     description: "Jeep i fuqishëm 12V për fëmijë aventurierë 3-8 vjeç. Me telekomandë prindërore, lojëtar MP3 dhe dritat funksionale.",
     shipping: 1000, badge: "hot", stock: 3
   },
   {
     id: 6, name: "Kamion Monster me Pult", category: "lodra-femije",
-    categoryLabel: "Makina me Pult", price: 3500, oldPrice: 0,
+    categoryLabel: "Lodra për Fëmijë", price: 3500, oldPrice: 0,
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop",
     description: "Kamion monster me shpejtësi të lartë me rrota gjigante. I përsosur për aventura jashtë rrugës. Ndërtim i qëndrueshëm.",
     shipping: 500, badge: "", stock: 12
