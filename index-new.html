@@ -45,10 +45,12 @@
   <nav class="cat-nav">
     <div class="container">
       <a href="#" class="active" data-cat="" onclick="setCategory(this, ''); return false;">Të gjitha</a>
-      <a href="#" data-cat="artificial-plants" onclick="setCategory(this, 'artificial-plants'); return false;">🌿 Bimë Artificiale</a>
-      <a href="#" data-cat="toys-remote" onclick="setCategory(this, 'toys-remote'); return false;">🚗 Makina me Pult</a>
-      <a href="#" data-cat="toys" onclick="setCategory(this, 'toys'); return false;">🧸 Lojëra</a>
-      <a href="#" data-cat="home-decor" onclick="setCategory(this, 'home-decor'); return false;">🏠 Dekor Shtëpie</a>
+      <a href="#" data-cat="bime-artificiale" onclick="setCategory(this, 'bime-artificiale'); return false;">🌿 Bimë Artificiale</a>
+      <a href="#" data-cat="lodra-femije" onclick="setCategory(this, 'lodra-femije'); return false;">🧸 Lodra për Fëmijë</a>
+      <a href="#" data-cat="fitnesi" onclick="setCategory(this, 'fitnesi'); return false;">💪 Fitnesi</a>
+      <a href="#" data-cat="dekor-shtepie" onclick="setCategory(this, 'dekor-shtepie'); return false;">🏠 Dekor Shtëpie</a>
+      <a href="#" data-cat="per-femra" onclick="setCategory(this, 'per-femra'); return false;">👩 Për Femra</a>
+      <a href="#" data-cat="ditelindja" onclick="setCategory(this, 'ditelindja'); return false;">🎂 Ditëlindja</a>
       <a href="#" data-cat="aksion" onclick="setCategory(this, 'aksion'); return false;">🔥 Aksion</a>
     </div>
   </nav>
@@ -71,25 +73,35 @@
   <section class="categories-strip">
     <div class="container">
       <div class="cat-cards">
-        <div class="cat-card" onclick="setCategory(null, 'artificial-plants')">
+        <div class="cat-card" onclick="setCategory(null, 'bime-artificiale')">
           <div class="icon">🌿</div>
           <h3>Bimë Artificiale</h3>
-          <p id="count-plants">0 produkte</p>
+          <p id="count-bime-artificiale">0 produkte</p>
         </div>
-        <div class="cat-card" onclick="setCategory(null, 'toys-remote')">
-          <div class="icon">🚗</div>
-          <h3>Makina me Pult</h3>
-          <p id="count-remote">0 produkte</p>
-        </div>
-        <div class="cat-card" onclick="setCategory(null, 'toys')">
+        <div class="cat-card" onclick="setCategory(null, 'lodra-femije')">
           <div class="icon">🧸</div>
-          <h3>Lojëra</h3>
-          <p id="count-toys">0 produkte</p>
+          <h3>Lodra për Fëmijë</h3>
+          <p id="count-lodra-femije">0 produkte</p>
         </div>
-        <div class="cat-card" onclick="setCategory(null, 'home-decor')">
+        <div class="cat-card" onclick="setCategory(null, 'fitnesi')">
+          <div class="icon">💪</div>
+          <h3>Fitnesi</h3>
+          <p id="count-fitnesi">0 produkte</p>
+        </div>
+        <div class="cat-card" onclick="setCategory(null, 'dekor-shtepie')">
           <div class="icon">🏠</div>
           <h3>Dekor Shtëpie</h3>
-          <p id="count-decor">0 produkte</p>
+          <p id="count-dekor-shtepie">0 produkte</p>
+        </div>
+        <div class="cat-card" onclick="setCategory(null, 'per-femra')">
+          <div class="icon">👩</div>
+          <h3>Për Femra</h3>
+          <p id="count-per-femra">0 produkte</p>
+        </div>
+        <div class="cat-card" onclick="setCategory(null, 'ditelindja')">
+          <div class="icon">🎂</div>
+          <h3>Ditëlindja</h3>
+          <p id="count-ditelindja">0 produkte</p>
         </div>
         <div class="cat-card" onclick="setCategory(null, 'aksion')" style="border-color:#FF1744;">
           <div class="icon">🔥</div>
@@ -142,10 +154,12 @@
         </div>
         <div class="footer-col">
           <h4>Kategoritë</h4>
-          <a href="#" onclick="setCategory(null,'artificial-plants')">Bimë Artificiale</a>
-          <a href="#" onclick="setCategory(null,'toys-remote')">Makina me Pult</a>
-          <a href="#" onclick="setCategory(null,'toys')">Lojëra</a>
-          <a href="#" onclick="setCategory(null,'home-decor')">Dekor Shtëpie</a>
+          <a href="#" onclick="setCategory(null,'bime-artificiale')">Bimë Artificiale</a>
+          <a href="#" onclick="setCategory(null,'lodra-femije')">Lodra për Fëmijë</a>
+          <a href="#" onclick="setCategory(null,'fitnesi')">Fitnesi</a>
+          <a href="#" onclick="setCategory(null,'dekor-shtepie')">Dekor Shtëpie</a>
+          <a href="#" onclick="setCategory(null,'per-femra')">Për Femra</a>
+          <a href="#" onclick="setCategory(null,'ditelindja')">Ditëlindja</a>
           <a href="#" onclick="setCategory(null,'aksion')">🔥 Aksion</a>
         </div>
         <div class="footer-col">

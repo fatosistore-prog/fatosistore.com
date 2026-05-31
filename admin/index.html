@@ -187,11 +187,13 @@
           <div class="form-group">
             <label>Kategoria *</label>
             <select id="pCategory" required>
-              <option value="artificial-plants">🌿 Bimë Artificiale</option>
-              <option value="toys-remote">🚗 Makina me Pult</option>
-              <option value="toys">🧸 Lojëra</option>
-              <option value="home-decor">🏠 Dekor Shtëpie</option>
-            </select>
+              <option value="bime-artificiale">🌿 Bimë Artificiale</option>
+              <option value="lodra-femije">🧸 Lodra për Fëmijë</option>
+              <option value="fitnesi">💪 Fitnesi</option>
+              <option value="dekor-shtepie">🏠 Dekor Shtëpie</option>
+              <option value="per-femra">👩 Për Femra</option>
+              <option value="ditelindja">🎂 Ditëlindja</option>
+              <option value="aksion">🔥 Aksion</option>
           </div>
           <div class="form-group">
             <label>Badge</label>
@@ -389,10 +391,12 @@
       const products = getProducts();
       const editId = document.getElementById('editId').value;
       const categoryLabels = {
-        'artificial-plants': 'Bimë Artificiale',
-        'toys-remote': 'Makina me Pult',
-        'toys': 'Lojëra',
-        'home-decor': 'Dekor Shtëpie',
+        'bime-artificiale': 'Bimë Artificiale',
+        'lodra-femije': 'Lodra për Fëmijë',
+        'fitnesi': 'Fitnesi',
+        'dekor-shtepie': 'Dekor Shtëpie',
+        'per-femra': 'Për Femra',
+        'ditelindja': 'Ditëlindja',
         'aksion': 'Aksion'
       };
       const cat = document.getElementById('pCategory').value;
