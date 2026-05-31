@@ -208,17 +208,17 @@
         <div class="form-row">
           <div class="form-group">
             <label>Çmimi (Lek) *</label>
-            <input type="number" id="pPrice" required min="0" step="1" placeholder="4500">
+            <input type="number" id="pPrice" required min="0" step="0.01" placeholder="19.99">
           </div>
           <div class="form-group">
             <label>Çmimi i Vjetër (Lek)</label>
-            <input type="number" id="pOldPrice" min="0" step="1" placeholder="0 (opsionale)">
+            <input type="number" id="pOldPrice" min="0" step="0.01" placeholder="0 (opsionale)">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Kosto Poste (Lek)</label>
-            <input type="number" id="pShipping" min="0" step="1" value="0" placeholder="0 = Falas">
+            <input type="number" id="pShipping" min="0" step="0.01" value="0" placeholder="0 = Falas">
           </div>
           <div class="form-group">
             <label>Stoku</label>
@@ -414,9 +414,9 @@ https://example.com/foto3.jpg"></textarea>
         category: cat,
         categoryLabel: categoryLabels[cat],
         badge: document.getElementById('pBadge').value,
-        price: parseInt(document.getElementById('pPrice').value),
-        oldPrice: parseInt(document.getElementById('pOldPrice').value) || 0,
-        shipping: parseInt(document.getElementById('pShipping').value) || 0,
+        price: parseFloat(document.getElementById('pPrice').value),
+        oldPrice: parseFloat(document.getElementById('pOldPrice').value) || 0,
+        shipping: parseFloat(document.getElementById('pShipping').value) || 0,
         stock: parseInt(document.getElementById('pStock').value) || 0,
         image: document.getElementById('pImage').value,
         images: document.getElementById('pImages').value.split('\\n').filter(u => u.trim()),
