@@ -1,126 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sq">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout — fatosistore.com</title>
+  <title>Porosia — FatosiStore</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <div class="announcement-bar">🚚 Free shipping on orders over 50 € • Cash on delivery</div>
-
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="logo">fatosistore<span>.</span></a>
-      <button class="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <a href="cart.html" class="cart-icon" aria-label="Shopping cart">
-          🛒 <span class="cart-count">0</span>
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+          <img src="images/logo.png" alt="Fatosi Store" style="height:50px;background:#fff;border-radius:8px;padding:4px;">
+          <span style="font-family:'Montserrat','Segoe UI',sans-serif;font-weight:800;font-size:22px;color:#fff;text-transform:uppercase;letter-spacing:1px;"><span style="color:#fff;">FATOSI</span><span style="color:#FFD700;">STORE</span></span>
         </a>
+      <div class="header-actions">
+        <a href="index.html">← Kthehu në Dyqan</a>
       </div>
     </div>
   </header>
 
   <section class="checkout-section">
-    <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
-        <div>
-          <h1>Checkout</h1>
-          <p class="section-subtitle" style="text-align:left;">Fill in your details and we'll deliver to your door</p>
+    <h1>📦 Plotëso Porosinë</h1>
 
-          <form id="checkout-form" class="checkout-form">
-            <div class="form-group">
-              <label for="customer-name">Full Name *</label>
-              <input type="text" id="customer-name" placeholder="e.g. John Doe" required>
-            </div>
-            <div class="form-group">
-              <label for="customer-phone">Phone Number *</label>
-              <input type="tel" id="customer-phone" placeholder="e.g. +355 69 123 4567" required>
-            </div>
-            <div class="form-group">
-              <label for="customer-address">Delivery Address *</label>
-              <input type="text" id="customer-address" placeholder="Street, building, apartment number" required>
-            </div>
-            <div class="form-group">
-              <label for="customer-city">City / Town *</label>
-              <input type="text" id="customer-city" placeholder="e.g. Tirana" required>
-            </div>
-            <div class="form-group">
-              <label for="order-notes">Additional Notes</label>
-              <textarea id="order-notes" placeholder="Any special instructions for delivery?"></textarea>
-            </div>
+    <div class="order-summary" id="orderSummary">
+      <!-- Populated by JS -->
+    </div>
 
-            <p style="font-size:14px;color:var(--text-light);margin-bottom:16px;">
-              💵 <strong>Payment:</strong> Cash on delivery — you pay when your order arrives.
-            </p>
-
-            <button type="submit" class="btn btn-primary" style="width:100%;font-size:16px;padding:14px;">
-              ✅ Place Order (Cash on Delivery)
-            </button>
-          </form>
+    <form id="checkoutForm" onsubmit="placeOrder(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Emri *</label>
+          <input type="text" id="firstName" required placeholder="Emri">
         </div>
-
-        <div>
-          <div class="order-summary">
-            <h3>Order Summary</h3>
-            <div id="order-items"></div>
-          </div>
-          <div class="order-total" style="background:var(--white);padding:16px 24px;border-radius:var(--radius-sm);border:1px solid var(--border);display:flex;justify-content:space-between;font-weight:700;font-size:18px;margin-top:12px;">
-            <span>Total (with shipping)</span>
-            <span id="total-amount">0.00 €</span>
-          </div>
+        <div class="form-group">
+          <label>Mbiemri *</label>
+          <input type="text" id="lastName" required placeholder="Mbiemri">
         </div>
       </div>
-    </div>
+      <div class="form-group">
+        <label>Numri i Telefonit *</label>
+        <input type="tel" id="phone" required placeholder="+355 6X XXX XXXX">
+      </div>
+      <div class="form-group">
+        <label>Adresa e Dorëzimit *</label>
+        <textarea id="address" required placeholder="Rruga, Numri, Qyteti, Kodi Postar"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Shënime (opsionale)</label>
+        <textarea id="notes" placeholder="Çdo informacion shtesë për dorëzimin..."></textarea>
+      </div>
+
+      <div class="cod-notice">
+        💵 <strong>Pagesa në Dorëzim</strong> — Pagesa bëhet kur merrni produktin nga postieri.
+      </div>
+
+      <button type="submit" class="btn-place-order">✅ Konfirmo Porosinë</button>
+    </form>
   </section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-about">
-          <a href="index.html" class="logo">fatosistore<span>.</span></a>
-          <p>Your trusted shop for artificial plants, toys, remote cars, and home decor. Cash on delivery across Albania.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <a href="shop.html">All Products</a>
-          <a href="about.html">About Us</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h4>Categories</h4>
-          <a href="shop.html?category=artificial-plants">Artificial Plants</a>
-          <a href="shop.html?category=toys-remote">Remote Cars</a>
-          <a href="shop.html?category=toys">Toys</a>
-          <a href="shop.html?category=home-decor">Home Decor</a>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <a href="tel:+355XXXXXXXX">📞 +355 XX XXX XXXX</a>
-          <a href="mailto:info@fatosistore.com">✉️ info@fatosistore.com</a>
-          <a href="contact.html">📍 Albania</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 fatosistore.com. All rights reserved.</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/products.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/main.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', loadCheckout);
+    function getCart() { return JSON.parse(localStorage.getItem('fatosi_cart') || '[]'); }
+    function getOrders() { return JSON.parse(localStorage.getItem('fatosi_orders') || '[]'); }
+    function formatPrice(price) {
+      return price.toFixed(2) + ' €';
+    }
+
+    function renderSummary() {
+      const cart = getCart();
+      const summary = document.getElementById('orderSummary');
+      if (cart.length === 0) {
+        window.location.href = 'index.html';
+        return;
+      }
+
+      let subtotal = 0, shipping = 0;
+      let itemsHtml = cart.map(item => {
+        subtotal += item.price * item.quantity;
+        shipping += (item.shipping || 0) * item.quantity;
+        return `<div class="summary-item">
+          <span>${item.name} x${item.quantity}</span>
+          <span>${formatPrice(item.price * item.quantity)}</span>
+        </div>`;
+      }).join('');
+
+      summary.innerHTML = `
+        <h3>📋 Përmbledhja e Porosisë</h3>
+        ${itemsHtml}
+        <div class="summary-item">
+          <span>Posta</span>
+          <span>${shipping > 0 ? formatPrice(shipping) : 'Falas'}</span>
+        </div>
+        <div class="summary-total">
+          <span>Totali</span>
+          <span class="amount">${formatPrice(subtotal + shipping)}</span>
+        </div>
+      `;
+    }
+
+    function placeOrder(e) {
+      e.preventDefault();
+      const cart = getCart();
+      if (cart.length === 0) return;
+
+      let subtotal = 0, shipping = 0;
+      cart.forEach(item => {
+        subtotal += item.price * item.quantity;
+        shipping += (item.shipping || 0) * item.quantity;
+      });
+
+      const order = {
+        id: 'FS-' + Date.now().toString(36).toUpperCase(),
+        date: new Date().toISOString(),
+        customer: {
+          firstName: document.getElementById('firstName').value,
+          lastName: document.getElementById('lastName').value,
+          phone: document.getElementById('phone').value,
+          address: document.getElementById('address').value,
+          notes: document.getElementById('notes').value
+        },
+        items: cart,
+        subtotal: subtotal,
+        shipping: shipping,
+        total: subtotal + shipping,
+        status: 'new'
+      };
+
+      const orders = getOrders();
+      orders.push(order);
+      localStorage.setItem('fatosi_orders', JSON.stringify(orders));
+      localStorage.removeItem('fatosi_cart');
+      // Send Telegram notification
+      sendTelegramNotification(order);
+
+      document.querySelector('.checkout-section').innerHTML = `
+        <div class="confirmation-section">
+          <div class="check-icon">✅</div>
+          <h1>Porosia u krye me sukses!</h1>
+          <p>Numri i porosisë: <strong>${order.id}</strong></p>
+          <p>Faleminderit ${order.customer.firstName}! Do t'ju kontaktojmë së shpejti për konfirmim.</p>
+          <p style="margin-top:16px;"><strong>Pagesa në dorëzim:</strong> ${formatPrice(order.total)}</p>
+          <a href="index.html" class="btn" style="display:inline-block; margin-top:24px; background:var(--primary); color:white; padding:14px 28px; border-radius:var(--radius-sm); font-weight:700;">← Kthehu në Dyqan</a>
+        </div>
+      `;
+    }
+
+    // Telegram notification
+    function sendTelegramNotification(order) {
+      const token = '8794130383:AAF0iaKniURH9wjtBD711krXAK2zVOfbLns';
+      const chatId = '8526963580';
+      const items = order.items.map(i => `- ${i.name} x${i.quantity}: ${formatPrice(i.price * i.quantity)}`).join('\n');
+      const msg = '🛒 POROSI E RE!\n\nID: ' + order.id +
+        '\nKlienti: ' + order.customer.firstName + ' ' + order.customer.lastName +
+        '\nTel: ' + order.customer.phone +
+        '\nAdresa: ' + order.customer.address +
+        '\n\nProduktet:\n' + items +
+        '\n\nPosta: ' + formatPrice(order.shipping) +
+        '\nTOTALI: ' + formatPrice(order.total) +
+        '\n\nPagesa në dorëzim 💵';
+      const url = 'https://api.telegram.org/bot' + token + '/sendMessage';
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, text: msg })
+      })
+        .then(r => { if(r.ok) console.log('Telegram OK'); else console.log('Telegram fail', r.status); })
+        .catch(e => console.log('Telegram error:', e));
+    }
+
+    renderSummary();
   </script>
 </body>
 </html>

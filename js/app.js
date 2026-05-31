@@ -401,12 +401,12 @@ function goToCheckout() {
 // ===== BUY NOW =====
 function buyNow(id) {
   addToCart(id, 1);
-  window.location.href = 'checkout-new.html';
+  window.location.href = 'checkout.html';
 }
 
 // ===== GO TO PRODUCT PAGE =====
 function goToProduct(id) {
-  window.location.href = 'product-new.html?id=' + id;
+  window.location.href = 'product.html?id=' + id;
 }
 
 // ===== WISHLIST (simple) =====

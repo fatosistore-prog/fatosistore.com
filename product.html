@@ -1,97 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sq">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product — fatosistore.com</title>
+  <title>Produkt — FatosiStore</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .product-page { padding: 40px 0; }
+    .product-page .container { max-width: 1000px; }
+    .product-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    
+    /* Gallery */
+    .gallery { position: sticky; top: 100px; }
+    .gallery-main { width: 100%; border-radius: var(--radius); overflow: hidden; background: #f8f8f8; margin-bottom: 12px; }
+    .gallery-main img { width: 100%; height: 400px; object-fit: cover; display: block; }
+    .gallery-thumbs { display: flex; gap: 8px; }
+    .gallery-thumbs img { width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-sm); cursor: pointer; border: 2px solid transparent; transition: var(--transition); }
+    .gallery-thumbs img:hover, .gallery-thumbs img.active { border-color: var(--primary); }
+    
+    /* Info */
+    .product-info { padding-top: 10px; }
+    .product-info .category-tag { font-size: 13px; color: var(--primary); font-weight: 600; text-transform: uppercase; margin-bottom: 8px; }
+    .product-info h1 { font-size: 28px; font-weight: 800; margin-bottom: 16px; line-height: 1.3; }
+    .product-info .price-box { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+    .product-info .price { font-size: 32px; font-weight: 800; color: var(--primary); }
+    .product-info .old-price { font-size: 20px; color: var(--text-muted); text-decoration: line-through; }
+    .product-info .shipping-badge { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: #E8F5E9; color: #2E7D32; border-radius: var(--radius-sm); font-weight: 600; font-size: 14px; margin-bottom: 20px; }
+    .product-info .shipping-badge.paid { background: #FFF3E0; color: #E65100; }
+    .product-info .description { font-size: 15px; color: var(--text-light); line-height: 1.8; margin-bottom: 24px; }
+    .product-info .stock-info { font-size: 14px; color: var(--green); font-weight: 600; margin-bottom: 20px; }
+    
+    .qty-section { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+    .qty-section label { font-weight: 600; font-size: 15px; }
+    .qty-control { display: flex; align-items: center; border: 2px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
+    .qty-control button { width: 40px; height: 40px; border: none; background: #f5f5f5; font-size: 20px; font-weight: 700; cursor: pointer; transition: var(--transition); }
+    .qty-control button:hover { background: #e0e0e0; }
+    .qty-control span { width: 50px; text-align: center; font-size: 18px; font-weight: 700; }
+    
+    .btn-group { display: flex; gap: 12px; margin-bottom: 24px; }
+    .btn-group .btn-cart { flex: 1; padding: 16px; background: var(--green); color: white; border: none; border-radius: var(--radius-sm); font-size: 16px; font-weight: 700; cursor: pointer; transition: var(--transition); }
+    .btn-group .btn-cart:hover { background: var(--green-dark); }
+    .btn-group .btn-buy { flex: 1; padding: 16px; background: var(--primary); color: white; border: none; border-radius: var(--radius-sm); font-size: 16px; font-weight: 700; cursor: pointer; transition: var(--transition); }
+    .btn-group .btn-buy:hover { background: var(--primary-dark); }
+    
+    .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-light); font-size: 14px; margin-bottom: 20px; }
+    .back-link:hover { color: var(--primary); }
+    
+    @media (max-width: 768px) {
+      .product-layout { grid-template-columns: 1fr; }
+      .gallery { position: static; }
+      .gallery-main img { height: 300px; }
+    }
+  </style>
 </head>
 <body>
-
-  <div class="announcement-bar">🚚 Free shipping on orders over 50 € • Cash on delivery</div>
-
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="logo">fatosistore<span>.</span></a>
-      <button class="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+        <img src="images/logo.png" alt="Fatosi Store" style="height:50px;background:#fff;border-radius:8px;padding:4px;">
+        <span style="font-family:'Montserrat','Segoe UI',sans-serif;font-weight:800;font-size:22px;color:#fff;text-transform:uppercase;letter-spacing:1px;"><span style="color:#fff;">FATOSI</span><span style="color:#FFD700;">STORE</span></span>
+      </a>
       <div class="header-actions">
-        <a href="cart.html" class="cart-icon" aria-label="Shopping cart">
-          🛒 <span class="cart-count">0</span>
-        </a>
+        <a href="index.html">← Kthehu</a>
+        <a href="#" onclick="openCart(); return false;">🛒 Shporta <span class="cart-badge" id="cartCount">0</span></a>
       </div>
     </div>
   </header>
 
-  <section class="product-detail">
+  <section class="product-page">
     <div class="container">
-      <a href="shop.html" style="display:inline-block;margin-bottom:20px;color:var(--primary);font-weight:500;">← Back to Shop</a>
-      <div class="product-detail-grid">
-        <img src="images/placeholder-plant.svg" alt="Product" class="product-detail-image" id="product-image">
-        <div class="product-detail-info">
-          <div class="product-category">Category</div>
-          <h1>Product Name</h1>
-          <div class="price">0.00 €</div>
-          <p class="description">Product description here.</p>
-          <ul class="details-list" style="margin-bottom:20px;padding-left:20px;">
-            <li style="color:var(--text-light);font-size:14px;margin-bottom:4px;">Feature details</li>
-          </ul>
-          <div class="qty-control">
-            <button class="qty-btn">−</button>
-            <span class="qty-value">1</span>
-            <button class="qty-btn">+</button>
-          </div>
-          <button class="btn btn-primary" style="font-size:16px;padding:14px 36px;">🛒 Add to Cart</button>
-        </div>
+      <a href="index.html" class="back-link">← Kthehu te produktet</a>
+      <div class="product-layout" id="productContent">
+        <!-- Populated by JS -->
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-about">
-          <a href="index.html" class="logo">fatosistore<span>.</span></a>
-          <p>Your trusted shop for artificial plants, toys, remote cars, and home decor. Cash on delivery across Albania.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <a href="shop.html">All Products</a>
-          <a href="about.html">About Us</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h4>Categories</h4>
-          <a href="shop.html?category=artificial-plants">Artificial Plants</a>
-          <a href="shop.html?category=toys-remote">Remote Cars</a>
-          <a href="shop.html?category=toys">Toys</a>
-          <a href="shop.html?category=home-decor">Home Decor</a>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <a href="tel:+355XXXXXXXX">📞 +355 XX XXX XXXX</a>
-          <a href="mailto:info@fatosistore.com">✉️ info@fatosistore.com</a>
-          <a href="contact.html">📍 Albania</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 fatosistore.com. All rights reserved.</span>
-      </div>
+  <!-- Cart Drawer -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>🛒 Shporta</h3>
+      <button onclick="closeCart()">✕</button>
     </div>
-  </footer>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="label">Totali:</span>
+        <span class="amount" id="cartTotal">0 €</span>
+      </div>
+      <button class="btn-checkout" onclick="window.location.href='checkout.html'">📞 Porosit Tani</button>
+    </div>
+  </div>
 
-  <script src="js/products.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/app.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', loadProductDetail);
+    const CATEGORY_LABELS = {
+      'bime-artificiale': 'Bimë Artificiale',
+      'lodra-femije': 'Lodra për Fëmijë',
+      'fitnesi': 'Fitnesi',
+      'dekor-shtepie': 'Dekor Shtëpie',
+      'per-femra': 'Për Femra',
+      'ditelindja': 'Ditëlindja',
+      'aksion': 'Aksion'
+    };
+
+    let productQty = 1;
+    let currentProduct = null;
+
+    function loadProduct() {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get('id'));
+      if (!id) { window.location.href = 'index.html'; return; }
+
+      const products = getProducts();
+      const product = products.find(p => p.id === id);
+      if (!product) { window.location.href = 'index.html'; return; }
+
+      currentProduct = product;
+      document.title = product.name + ' — FatosiStore';
+
+      const images = product.images || [product.image];
+      const mainImg = images[0] || product.image;
+
+      document.getElementById('productContent').innerHTML = `
+        <div class="gallery">
+          <div class="gallery-main">
+            <img id="mainImage" src="${mainImg}" alt="${product.name}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22><rect fill=%22%23f5f5f5%22 width=%22400%22 height=%22400%22/><text x=%22200%22 y=%22200%22 text-anchor=%22middle%22 fill=%22%23ccc%22 font-size=%2260%22>🛒</text></svg>'">
+          </div>
+          <div class="gallery-thumbs">
+            ${images.map((img, i) => `<img src="${img}" alt="Foto ${i+1}" class="${i===0?'active':''}" onclick="changeImage(this, '${img}')">`).join('')}
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="category-tag">${CATEGORY_LABELS[product.category] || product.category}</div>
+          <h1>${product.name}</h1>
+          <div class="price-box">
+            <span class="price">${formatPrice(product.price)}</span>
+            ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
+          </div>
+          <div class="shipping-badge ${product.shipping > 0 ? 'paid' : ''}">
+            ${product.shipping > 0 ? '📦 Posta: ' + formatPrice(product.shipping) : '📦 Posta Falas'}
+          </div>
+          ${product.stock ? `<div class="stock-info">✅ Në stok: ${product.stock} copë</div>` : ''}
+          <p class="description">${product.description || ''}</p>
+          <div class="qty-section">
+            <label>Sasia:</label>
+            <div class="qty-control">
+              <button onclick="changeQty(-1)">−</button>
+              <span id="qtyDisplay">1</span>
+              <button onclick="changeQty(1)">+</button>
+            </div>
+          </div>
+          <div class="btn-group">
+            <button class="btn-cart" onclick="addToCartPage()">🛒 Shto në Shportë</button>
+            <button class="btn-buy" onclick="buyNowPage()">⚡ Bli Direkt</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function changeImage(thumb, src) {
+      document.getElementById('mainImage').src = src;
+      document.querySelectorAll('.gallery-thumbs img').forEach(i => i.classList.remove('active'));
+      thumb.classList.add('active');
+    }
+
+    function changeQty(delta) {
+      productQty = Math.max(1, Math.min(99, productQty + delta));
+      document.getElementById('qtyDisplay').textContent = productQty;
+    }
+
+    function addToCartPage() {
+      if (!currentProduct) return;
+      addToCart(currentProduct.id, productQty);
+      openCart();
+    }
+
+    function buyNowPage() {
+      if (!currentProduct) return;
+      addToCart(currentProduct.id, productQty);
+      window.location.href = 'checkout.html';
+    }
+
+    loadProduct();
+    updateCartCount();
   </script>
 </body>
 </html>
