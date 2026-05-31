@@ -242,7 +242,7 @@ https://example.com/foto3.jpg"></textarea>
           <textarea id="pDescription" placeholder="Përshkrimi i produktit..."></textarea>
         </div>
         <div style="display:flex; gap:12px; margin-top:24px;">
-          <button type="button" class="btn-primary" style="flex:1;" onclick="saveProduct(event)">💾 Ruaj Produktin</button>
+          <button type="button" class="btn-primary" id="saveProductBtn" style="flex:1;">💾 Ruaj Produktin</button>
           <button type="button" class="btn-secondary" onclick="closeProductModal()">Anulo</button>
         </div>
       </form>
@@ -298,8 +298,11 @@ https://example.com/foto3.jpg"></textarea>
       document.getElementById('passwordInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPassword(); });
       document.getElementById('passwordInput').focus();
       // Attach save button handler
-      const saveBtn = document.querySelector('.product-modal .btn-primary');
-      if (saveBtn) saveBtn.addEventListener('click', function(e) { saveProduct(e); });
+      document.addEventListener('click', function(e) {
+        if (e.target && e.target.id === 'saveProductBtn') {
+          saveProduct(e);
+        }
+      });
     });
 
     // ===== TABS =====

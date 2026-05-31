@@ -1,233 +1,53 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fatosi Store — Bimë Artificiale, Lodra, Fitnesi, Dekor & Më Shumë</title>
-  <meta name="description" content="Fatosi Store — dyqani juaj online për bimë artificiale, lodra për fëmijë, fitnesi, dekor shtëpie dhe më shumë. Çmime të shkëlqyera, dërgesë në të gjithë Shqipërinë.">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
+  <title>Fatosi Store</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000000;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: clamp(28px, 6vw, 72px);
+      font-weight: 700;
+      color: #D4AF37;
+      text-shadow: 0 0 40px rgba(212, 175, 55, 0.3),
+                   0 0 80px rgba(212, 175, 55, 0.15);
+      letter-spacing: 3px;
+      line-height: 1.3;
+      animation: fadeIn 2s ease-out;
+    }
+    .subtitle {
+      color: rgba(212, 175, 55, 0.6);
+      font-size: clamp(12px, 2vw, 18px);
+      margin-top: 20px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      font-family: 'Arial', sans-serif;
+      animation: fadeIn 3s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- TOP BAR -->
-  <div class="top-bar">
-    <div class="container">
-      <div class="top-bar-left">
-        📦 Dërgesë në të gjithë Shqipërinë — Pagesa në dorëzim
-      </div>
-      <div class="top-bar-right">
-        <a href="tel:+35569XXXXXXX">📞 Na kontaktoni</a>
-      </div>
-    </div>
+  <div class="container">
+    <h1>Fatosi Store</h1>
+    <p class="subtitle">WEB COMING SOON!</p>
   </div>
-
-  <!-- HEADER -->
-  <header class="header">
-    <div class="container">
-      <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-          <img src="images/logo.png" alt="Fatosi Store" style="height:50px;background:#fff;border-radius:8px;padding:4px;">
-          <span style="font-family:'Montserrat','Segoe UI',sans-serif;font-weight:800;font-size:22px;color:#fff;text-transform:uppercase;letter-spacing:1px;"><span style="color:#fff;">FATOSI</span><span style="color:#FFD700;">STORE</span></span>
-        </a>
-      <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Kërko produktin që dëshiron..." oninput="filterProducts()">
-        <button onclick="filterProducts()">🔍</button>
-      </div>
-      <div class="header-actions">
-        <a href="#" onclick="openCart(); return false;">
-          🛒 Shporta <span class="cart-badge" id="cartCount">0</span>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- CATEGORY NAV -->
-  <nav class="cat-nav">
-    <div class="container">
-      <a href="#" class="active" data-cat="" onclick="setCategory(this, ''); return false;">Të gjitha</a>
-      <a href="#" data-cat="bime-artificiale" onclick="setCategory(this, 'bime-artificiale'); return false;">🌿 Bimë Artificiale</a>
-      <a href="#" data-cat="lodra-femije" onclick="setCategory(this, 'lodra-femije'); return false;">🧸 Lodra për Fëmijë</a>
-      <a href="#" data-cat="fitnesi" onclick="setCategory(this, 'fitnesi'); return false;">💪 Fitnesi</a>
-      <a href="#" data-cat="dekor-shtepie" onclick="setCategory(this, 'dekor-shtepie'); return false;">🏠 Dekor Shtëpie</a>
-      <a href="#" data-cat="per-femra" onclick="setCategory(this, 'per-femra'); return false;">👩 Për Femra</a>
-      <a href="#" data-cat="ditelindja" onclick="setCategory(this, 'ditelindja'); return false;">🎂 Ditëlindja</a>
-      <a href="#" data-cat="aksion" onclick="setCategory(this, 'aksion'); return false;">🔥 Aksion</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-text">
-        <h1>Ofertat më të mira për shtëpinë dhe fëmijët tuaj!</h1>
-        <p>Zbulo bimë artificiale, lojëra, makina me pult dhe dekor shtëpie me çmime fantastike. Dërgesë e shpejtë në të gjithë Shqipërinë.</p>
-        <a href="#products" class="btn">🛒 Shiko Produktet</a>
-      </div>
-      <div class="hero-products" id="heroProducts">
-        <!-- Populated by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- CATEGORIES STRIP -->
-  <section class="categories-strip">
-    <div class="container">
-      <div class="cat-cards">
-        <div class="cat-card" onclick="setCategory(null, 'bime-artificiale')">
-          <div class="icon">🌿</div>
-          <h3>Bimë Artificiale</h3>
-          <p id="count-bime-artificiale">0 produkte</p>
-        </div>
-        <div class="cat-card" onclick="setCategory(null, 'lodra-femije')">
-          <div class="icon">🧸</div>
-          <h3>Lodra për Fëmijë</h3>
-          <p id="count-lodra-femije">0 produkte</p>
-        </div>
-        <div class="cat-card" onclick="setCategory(null, 'fitnesi')">
-          <div class="icon">💪</div>
-          <h3>Fitnesi</h3>
-          <p id="count-fitnesi">0 produkte</p>
-        </div>
-        <div class="cat-card" onclick="setCategory(null, 'dekor-shtepie')">
-          <div class="icon">🏠</div>
-          <h3>Dekor Shtëpie</h3>
-          <p id="count-dekor-shtepie">0 produkte</p>
-        </div>
-        <div class="cat-card" onclick="setCategory(null, 'per-femra')">
-          <div class="icon">👩</div>
-          <h3>Për Femra</h3>
-          <p id="count-per-femra">0 produkte</p>
-        </div>
-        <div class="cat-card" onclick="setCategory(null, 'ditelindja')">
-          <div class="icon">🎂</div>
-          <h3>Ditëlindja</h3>
-          <p id="count-ditelindja">0 produkte</p>
-        </div>
-        <div class="cat-card" onclick="setCategory(null, 'aksion')" style="border-color:#FF1744;">
-          <div class="icon">🔥</div>
-          <h3>Aksion</h3>
-          <p id="count-aksion">0 produkte</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ALL PRODUCTS -->
-  <section class="products-section" id="products">
-    <div class="container">
-      <div class="section-title">
-        <h2>🔥 Të gjitha produktet <span class="count" id="productCount"></span></h2>
-      </div>
-      <div class="product-grid" id="productGrid">
-        <!-- Populated by JS -->
-      </div>
-      <div id="noProducts" style="display:none; text-align:center; padding:40px; color:var(--text-muted);">
-        <div style="font-size:48px; margin-bottom:12px;">😕</div>
-        <h3>Nuk u gjet asnjë produkt</h3>
-        <p>Provo një kërkim tjetër ose ndrysho kategorinë.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-about">
-          <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-            <img src="images/logo.png" alt="Fatosi Store" style="height:45px;background:#fff;border-radius:8px;padding:4px;">
-            <span style="font-family:'Montserrat','Segoe UI',sans-serif;font-weight:800;font-size:20px;color:#fff;text-transform:uppercase;letter-spacing:1px;"><span style="color:#fff;">FATOSI</span><span style="color:#FFD700;">STORE</span></span>
-          </a>
-          <p>Dyqani juaj online për bimë artificiale, lodra për fëmijë, fitnesi, dekor shtëpie dhe më shumë. Me çmime të shkëlqyera dhe dërgesë në të gjithë Shqipërinë.</p>
-          <div class="footer-social">
-            <a href="#">📘</a>
-            <a href="#">📷</a>
-            <a href="#">🎵</a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Faqet</h4>
-          <a href="index.html">Ballina</a>
-          <a href="#products">Produktet</a>
-          <a href="#">Rreth Nesh</a>
-          <a href="#">Kontakti</a>
-        </div>
-        <div class="footer-col">
-          <h4>Kategoritë</h4>
-          <a href="#" onclick="setCategory(null,'bime-artificiale')">Bimë Artificiale</a>
-          <a href="#" onclick="setCategory(null,'lodra-femije')">Lodra për Fëmijë</a>
-          <a href="#" onclick="setCategory(null,'fitnesi')">Fitnesi</a>
-          <a href="#" onclick="setCategory(null,'dekor-shtepie')">Dekor Shtëpie</a>
-          <a href="#" onclick="setCategory(null,'per-femra')">Për Femra</a>
-          <a href="#" onclick="setCategory(null,'ditelindja')">Ditëlindja</a>
-          <a href="#" onclick="setCategory(null,'aksion')">🔥 Aksion</a>
-        </div>
-        <div class="footer-col">
-          <h4>Informacion</h4>
-          <a href="#">Si të Porosisësh</a>
-          <a href="#">Politika e Privatësisë</a>
-          <a href="#">Termat dhe Kushtet</a>
-          <a href="#">Pyetje të Shpeshta</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        &copy; 2026 FatosiStore.com — Të gjitha të drejtat e rezervuara.
-      </div>
-    </div>
-  </footer>
-
-  <!-- PRODUCT MODAL -->
-  <div class="modal-overlay" id="productModal" onclick="if(event.target===this)closeModal()">
-    <div class="modal">
-      <button class="modal-close" onclick="closeModal()">✕</button>
-      <div class="modal-body">
-        <div class="modal-img">
-          <img id="modalImg" src="" alt="">
-        </div>
-        <div class="modal-info">
-          <div class="category-tag" id="modalCategory"></div>
-          <h2 id="modalTitle"></h2>
-          <div class="price" id="modalPrice"></div>
-          <div class="shipping-info" id="modalShipping"></div>
-          <p class="description" id="modalDesc"></p>
-          <div class="qty-control">
-            <button onclick="changeQty(-1)">−</button>
-            <span id="modalQty">1</span>
-            <button onclick="changeQty(1)">+</button>
-          </div>
-          <button class="btn-buy" onclick="addToCartFromModal()">🛒 Shto në Shportë</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CART DRAWER -->
-  <div class="cart-drawer" id="cartDrawer">
-    <div class="cart-drawer-header">
-      <h3>🛒 Shporta</h3>
-      <button onclick="closeCart()">✕</button>
-    </div>
-    <div class="cart-items" id="cartItems">
-      <div class="cart-empty">
-        <div class="icon">🛒</div>
-        <p>Shporta juaj është bosh</p>
-      </div>
-    </div>
-    <div class="cart-footer">
-      <div class="cart-total">
-        <span class="label">Totali:</span>
-        <span class="amount" id="cartTotal">0 L</span>
-      </div>
-      <button class="btn-checkout" onclick="goToCheckout()">📞 Porosit Tani (Pagesa në Dorëzim)</button>
-    </div>
-  </div>
-
-  <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/35569XXXXXXX" class="whatsapp-float" target="_blank">💬</a>
-
-  <!-- TOAST -->
-  <div class="toast" id="toast"></div>
-
-  <script src="js/app.js"></script>
 </body>
 </html>
