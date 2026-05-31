@@ -419,7 +419,7 @@ https://example.com/foto3.jpg"></textarea>
         shipping: parseFloat(document.getElementById('pShipping').value) || 0,
         stock: parseInt(document.getElementById('pStock').value) || 0,
         image: document.getElementById('pImage').value,
-        images: document.getElementById('pImages').value.split('\\n').filter(u => u.trim()),
+        images: document.getElementById('pImages').value.split('\n').filter(u => u.trim()),
         description: document.getElementById('pDescription').value
       };
 
