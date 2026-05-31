@@ -62,8 +62,8 @@
     function getCart() { return JSON.parse(localStorage.getItem('fatosi_cart') || '[]'); }
     function getOrders() { return JSON.parse(localStorage.getItem('fatosi_orders') || '[]'); }
     function formatPrice(cents) {
-      if (cents >= 1000) return (cents / 100).toFixed(0) + ' L';
-      return cents + ' L';
+      if (cents >= 1000) return (cents / 100).toFixed(0) + ' €';
+      return cents + ' €';
     }
 
     function renderSummary() {

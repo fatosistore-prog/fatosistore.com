@@ -306,8 +306,8 @@
     function saveProducts(products) { localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products)); }
 
     function formatPrice(cents) {
-      if (cents >= 1000) return (cents / 100).toFixed(0) + ' L';
-      return cents + ' L';
+      if (cents >= 1000) return (cents / 100).toFixed(0) + ' €';
+      return cents + ' €';
     }
 
     function loadProducts() {

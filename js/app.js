@@ -194,8 +194,8 @@ function renderProducts() {
 
 function formatPrice(cents) {
   // Prices stored in cents (lek * 100) or as integers
-  if (cents >= 1000) return (cents / 100).toFixed(0) + ' L';
-  return cents + ' L';
+  if (cents >= 1000) return (cents / 100).toFixed(0) + ' €';
+  return cents + ' €';
 }
 
 // ===== HERO PRODUCTS =====
@@ -357,7 +357,7 @@ function renderCart() {
 
   if (cart.length === 0) {
     el.innerHTML = '<div class="cart-empty"><div class="icon">🛒</div><p>Shporta juaj është bosh</p></div>';
-    totalEl.textContent = '0 L';
+    totalEl.textContent = '0 €';
     return;
   }
 
