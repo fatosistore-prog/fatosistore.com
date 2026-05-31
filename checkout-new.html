@@ -131,9 +131,8 @@
       localStorage.setItem('fatosi_orders', JSON.stringify(orders));
       localStorage.removeItem('fatosi_cart');
       // Send Telegram notification
+      sendTelegramNotification(order);
 
-      // Show confirmation
-      // Show confirmation
       document.querySelector('.checkout-section').innerHTML = `
         <div class="confirmation-section">
           <div class="check-icon">✅</div>
