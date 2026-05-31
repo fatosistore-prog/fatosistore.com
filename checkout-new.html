@@ -150,10 +150,22 @@
     function sendTelegramNotification(order) {
       const token = '8794130383:AAF0iaKniURH9wjtBD711krXAK2zVOfbLns';
       const chatId = '8526963580';
-      const items = order.items.map(i => `- ${i.name} x${i.quantity}: ${formatPrice(i.price * i.quantity)}`).join('%0A');
-      const msg = `🛒 POROSI E RE!%0A%0AID: ${order.id}%0AKlienti: ${order.customer.firstName} ${order.customer.lastName}%0ATel: ${order.customer.phone}%0AAdresa: ${order.customer.address}%0A%0AProduktet:%0A${items}%0A%0APosta: ${formatPrice(order.shipping)}%0ATOTALI: ${formatPrice(order.total)}%0A%0APagesa në dorëzim 💵`;
-      fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${msg}&parse_mode=HTML`)
-        .then(r => console.log('Telegram notified'))
+      const items = order.items.map(i => `- ${i.name} x${i.quantity}: ${formatPrice(i.price * i.quantity)}`).join('\n');
+      const msg = '🛒 POROSI E RE!\n\nID: ' + order.id +
+        '\nKlienti: ' + order.customer.firstName + ' ' + order.customer.lastName +
+        '\nTel: ' + order.customer.phone +
+        '\nAdresa: ' + order.customer.address +
+        '\n\nProduktet:\n' + items +
+        '\n\nPosta: ' + formatPrice(order.shipping) +
+        '\nTOTALI: ' + formatPrice(order.total) +
+        '\n\nPagesa në dorëzim 💵';
+      const url = 'https://api.telegram.org/bot' + token + '/sendMessage';
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, text: msg })
+      })
+        .then(r => { if(r.ok) console.log('Telegram OK'); else console.log('Telegram fail', r.status); })
         .catch(e => console.log('Telegram error:', e));
     }
 
