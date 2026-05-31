@@ -127,7 +127,8 @@ const CATEGORY_LABELS = {
   'artificial-plants': 'Bimë Artificiale',
   'toys-remote': 'Makina me Pult',
   'toys': 'Lojëra',
-  'home-decor': 'Dekor Shtëpie'
+  'home-decor': 'Dekor Shtëpie',
+  'aksion': '🔥 Aksion'
 };
 
 let currentCategory = '';
@@ -167,7 +168,7 @@ function renderProducts() {
   noProducts.style.display = 'none';
   grid.innerHTML = filtered.map(p => `
     <div class="product-card" onclick="openModal(${p.id})">
-      ${p.badge ? `<span class="badge ${p.badge}">${p.badge === 'hot' ? 'HOT' : p.badge === 'new' ? 'E RE' : 'ULJE'}</span>` : ''}
+      ${p.badge ? `<span class="badge ${p.badge}">${p.badge === 'hot' ? 'HOT' : p.badge === 'new' ? 'E RE' : p.badge === 'aksion' ? 'AKSION' : 'ULJE'}</span>` : ''}
       <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(${p.id})">♡</button>
       <div class="img-wrap">
         <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23f5f5f5%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22150%22 text-anchor=%22middle%22 fill=%22%23ccc%22 font-size=%2240%22>🛒</text></svg>'">
@@ -183,6 +184,7 @@ function renderProducts() {
           ${p.shipping > 0 ? `📦 Posta: ${formatPrice(p.shipping)}` : '📦 Posta Falas'}
         </div>
         <button class="btn-add" onclick="event.stopPropagation(); quickAdd(${p.id})">🛒 Shto në Shportë</button>
+        <button class="btn-buy-now" onclick="event.stopPropagation(); buyNow(${p.id})">⚡ Bli Direkt</button>
       </div>
     </div>
   `).join('');
@@ -217,13 +219,14 @@ function renderHeroProducts() {
 // ===== CATEGORY COUNTS =====
 function updateCategoryCounts() {
   const products = getProducts();
-  const counts = { 'artificial-plants': 0, 'toys-remote': 0, 'toys': 0, 'home-decor': 0 };
+  const counts = { 'artificial-plants': 0, 'toys-remote': 0, 'toys': 0, 'home-decor': 0, 'aksion': 0 };
   products.forEach(p => { if (counts[p.category] !== undefined) counts[p.category]++; });
   const el = (id) => document.getElementById(id);
   if (el('count-plants')) el('count-plants').textContent = counts['artificial-plants'] + ' produkte';
   if (el('count-remote')) el('count-remote').textContent = counts['toys-remote'] + ' produkte';
   if (el('count-toys')) el('count-toys').textContent = counts['toys'] + ' produkte';
   if (el('count-decor')) el('count-decor').textContent = counts['home-decor'] + ' produkte';
+  if (el('count-aksion')) el('count-aksion').textContent = counts['aksion'] + ' produkte';
 }
 
 // ===== FILTER & SEARCH =====
@@ -379,6 +382,12 @@ function goToCheckout() {
     return;
   }
   window.location.href = 'checkout.html';
+}
+
+// ===== BUY NOW =====
+function buyNow(id) {
+  addToCart(id, 1);
+  window.location.href = 'checkout-new.html';
 }
 
 // ===== WISHLIST (simple) =====

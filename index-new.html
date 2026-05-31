@@ -25,7 +25,7 @@
   <!-- HEADER -->
   <header class="header">
     <div class="container">
-      <a href="index.html" class="logo"><img src="images/logo.png" alt="Fatosi Store" style="height:50px;background:#fff;border-radius:8px;padding:4px;"></a>
+      <a href="index.html" class="logo">Fatosi<span>Store</span></a>
       <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Kërko produktin që dëshiron..." oninput="filterProducts()">
         <button onclick="filterProducts()">🔍</button>
@@ -46,6 +46,7 @@
       <a href="#" data-cat="toys-remote" onclick="setCategory(this, 'toys-remote'); return false;">🚗 Makina me Pult</a>
       <a href="#" data-cat="toys" onclick="setCategory(this, 'toys'); return false;">🧸 Lojëra</a>
       <a href="#" data-cat="home-decor" onclick="setCategory(this, 'home-decor'); return false;">🏠 Dekor Shtëpie</a>
+      <a href="#" data-cat="aksion" onclick="setCategory(this, 'aksion'); return false;">🔥 Aksion</a>
     </div>
   </nav>
 
@@ -87,6 +88,11 @@
           <h3>Dekor Shtëpie</h3>
           <p id="count-decor">0 produkte</p>
         </div>
+        <div class="cat-card" onclick="setCategory(null, 'aksion')" style="border-color:#FF1744;">
+          <div class="icon">🔥</div>
+          <h3>Aksion</h3>
+          <p id="count-aksion">0 produkte</p>
+        </div>
       </div>
     </div>
   </section>
@@ -113,7 +119,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
-          <a href="index.html" class="logo"><img src="images/logo.png" alt="Fatosi Store" style="height:50px;background:#fff;border-radius:8px;padding:4px;"></a>
+          <a href="index.html" class="logo">Fatosi<span>Store</span></a>
           <p>Dyqani juaj online për bimë artificiale, lojëra për fëmijë, makina me pult dhe dekor shtëpie. Me çmime të shkëlqyera dhe dërgesë në të gjithë Shqipërinë.</p>
           <div class="footer-social">
             <a href="#">📘</a>
@@ -134,6 +140,7 @@
           <a href="#" onclick="setCategory(null,'toys-remote')">Makina me Pult</a>
           <a href="#" onclick="setCategory(null,'toys')">Lojëra</a>
           <a href="#" onclick="setCategory(null,'home-decor')">Dekor Shtëpie</a>
+          <a href="#" onclick="setCategory(null,'aksion')">🔥 Aksion</a>
         </div>
         <div class="footer-col">
           <h4>Informacion</h4>
