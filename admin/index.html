@@ -230,6 +230,12 @@
           <input type="url" id="pImage" required placeholder="https://example.com/foto.jpg" oninput="previewImage(this.value)">
           <img id="imgPreview" class="image-preview" style="display:none;">
           <p style="font-size:12px; color:var(--text-muted); margin-top:4px;">Vendos URL-në e fotos (mund ta ngarkosh në Imgur.com dhe ta kopjosh linkun)</p>
+        <div class="form-group">
+          <label>Foto Shtesë (URL, një për rresht)</label>
+          <textarea id="pImages" placeholder="https://example.com/foto2.jpg
+https://example.com/foto3.jpg"></textarea>
+          <p style="font-size:12px; color:var(--text-muted); margin-top:4px;">Një URL për rresht. Linja e parë është fotoja kryesore.</p>
+        </div>
         </div>
         <div class="form-group">
           <label>Përshkrimi</label>
@@ -413,6 +419,8 @@
         shipping: parseInt(document.getElementById('pShipping').value) || 0,
         stock: parseInt(document.getElementById('pStock').value) || 0,
         image: document.getElementById('pImage').value,
+        images: document.getElementById('pImages').value.split('
+').filter(u => u.trim()),
         description: document.getElementById('pDescription').value
       };
 
