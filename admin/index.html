@@ -297,6 +297,9 @@ https://example.com/foto3.jpg"></textarea>
       if (sessionStorage.getItem(SESSION_KEY) === 'true') unlockAdmin();
       document.getElementById('passwordInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPassword(); });
       document.getElementById('passwordInput').focus();
+      // Attach save button handler
+      const saveBtn = document.querySelector('.product-modal .btn-primary');
+      if (saveBtn) saveBtn.addEventListener('click', function(e) { saveProduct(e); });
     });
 
     // ===== TABS =====
