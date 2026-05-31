@@ -61,9 +61,8 @@
   <script>
     function getCart() { return JSON.parse(localStorage.getItem('fatosi_cart') || '[]'); }
     function getOrders() { return JSON.parse(localStorage.getItem('fatosi_orders') || '[]'); }
-    function formatPrice(cents) {
-      if (cents >= 1000) return (cents / 100).toFixed(0) + ' €';
-      return cents + ' €';
+    function formatPrice(price) {
+      return price.toFixed(2) + ' €';
     }
 
     function renderSummary() {

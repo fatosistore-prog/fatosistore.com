@@ -6,84 +6,84 @@
 const DEFAULT_PRODUCTS = [
   {
     id: 1, name: "Bimë Artificiale Bambu", category: "bime-artificiale",
-    categoryLabel: "Bimë Artificiale", price: 4500, oldPrice: 5500,
+    categoryLabel: "Bimë Artificiale", price: 45.00, oldPrice: 55.00,
     image: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400&h=300&fit=crop",
     description: "Bimë artificiale bambuje e bukur që i shton freski çdo dhomeje. Nuk ka nevojë për ujitje — qëndron jeshile gjatë gjithë vitit.",
     shipping: 0, badge: "hot", stock: 10
   },
   {
     id: 2, name: "Bimë Monstera Artificiale", category: "bime-artificiale",
-    categoryLabel: "Bimë Artificiale", price: 3800, oldPrice: 0,
+    categoryLabel: "Bimë Artificiale", price: 38.00, oldPrice: 0,
     image: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&h=300&fit=crop",
     description: "Bimë Monstera artificiale me gjethe të mëdha të ndara. Sjell atmosferë tropikale në shtëpinë tuaj.",
     shipping: 0, badge: "new", stock: 8
   },
   {
     id: 3, name: "Lavender Artificiale", category: "bime-artificiale",
-    categoryLabel: "Bimë Artificiale", price: 2800, oldPrice: 3500,
+    categoryLabel: "Bimë Artificiale", price: 28.00, oldPrice: 35.00,
     image: "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=400&h=300&fit=crop",
     description: "Tufë e bukur lulesh lavande artificiale. E përsosur për të shtuar ngjyrë dhe aromë rustike në kuzhinë ose dhomë gjumi.",
     shipping: 0, badge: "sale", stock: 15
   },
   {
     id: 4, name: "Makinë Elektrike Audi R8 për Fëmijë", category: "lodra-femije",
-    categoryLabel: "Lodra për Fëmijë", price: 8900, oldPrice: 11000,
+    categoryLabel: "Lodra për Fëmijë", price: 89.00, oldPrice: 110.00,
     image: "https://images.unsplash.com/photo-1581235707960-23b7e8b9b8c9?w=400&h=300&fit=crop",
     description: "Makinë elektrike me telekomandë Audi R8 për fëmijë 2-5 vjeç. Dizajn realist, e lehtë për t'u përdorur dhe e sigurt për brenda shtëpisë.",
-    shipping: 500, badge: "hot", stock: 5
+    shipping: 5.00, badge: "hot", stock: 5
   },
   {
     id: 5, name: "Jeep 12V për Fëmijë me Pult", category: "lodra-femije",
-    categoryLabel: "Lodra për Fëmijë", price: 18900, oldPrice: 22000,
+    categoryLabel: "Lodra për Fëmijë", price: 189.00, oldPrice: 220.00,
     image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=300&fit=crop",
     description: "Jeep i fuqishëm 12V për fëmijë aventurierë 3-8 vjeç. Me telekomandë prindërore, lojëtar MP3 dhe dritat funksionale.",
-    shipping: 1000, badge: "hot", stock: 3
+    shipping: 10.00, badge: "hot", stock: 3
   },
   {
     id: 6, name: "Kamion Monster me Pult", category: "lodra-femije",
-    categoryLabel: "Lodra për Fëmijë", price: 3500, oldPrice: 0,
+    categoryLabel: "Lodra për Fëmijë", price: 35.00, oldPrice: 0,
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop",
     description: "Kamion monster me shpejtësi të lartë me rrota gjigante. I përsosur për aventura jashtë rrugës. Ndërtim i qëndrueshëm.",
-    shipping: 500, badge: "", stock: 12
+    shipping: 5.00, badge: "", stock: 12
   },
   {
     id: 7, name: "Set Blloqe Ndërtimi (200 copë)", category: "lodra-femije",
-    categoryLabel: "Lojëra", price: 2400, oldPrice: 3000,
+    categoryLabel: "Lojëra", price: 24.00, oldPrice: 30.00,
     image: "https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?w=400&h=300&fit=crop",
     description: "Set me 200 blloqe me ngjyra që ndihmojnë në zhvillimin e kreativitetit dhe aftësive motorrike. Përputhen me markat kryesore.",
     shipping: 0, badge: "sale", stock: 20
   },
   {
     id: 8, name: "Arush i Madh Plush (80cm)", category: "lodra-femije",
-    categoryLabel: "Lojëra", price: 3200, oldPrice: 0,
+    categoryLabel: "Lojëra", price: 32.00, oldPrice: 0,
     image: "https://images.unsplash.com/photo-1559715541-5daf8a0296d0?w=400&h=300&fit=crop",
     description: "Arush i butë dhe i rehatshëm 80cm i lartë. Material cilësor plush. Dhuratë e përsosur për çdo fëmijë.",
-    shipping: 500, badge: "new", stock: 7
+    shipping: 5.00, badge: "new", stock: 7
   },
   {
     id: 9, name: "Puzzle Montessori prej Druri", category: "lodra-femije",
-    categoryLabel: "Lojëra", price: 1800, oldPrice: 0,
+    categoryLabel: "Lojëra", price: 18.00, oldPrice: 0,
     image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=300&fit=crop",
     description: "Puzzle edukativ prej druri me parime Montessori. Ndihmon në zhvillimin e aftësive motorike dhe njohjen e formave.",
     shipping: 0, badge: "", stock: 25
   },
   {
     id: 10, name: "Set Vazo Qeramike (3 copë)", category: "dekor-shtepie",
-    categoryLabel: "Dekor Shtëpie", price: 4200, oldPrice: 5000,
+    categoryLabel: "Dekor Shtëpie", price: 42.00, oldPrice: 50.00,
     image: "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?w=400&h=300&fit=crop",
     description: "Set elegant me 3 vazo qeramike në madhësi të ndryshme. Dizajn minimalist që plotëson çdo stil interieri.",
-    shipping: 500, badge: "", stock: 6
+    shipping: 5.00, badge: "", stock: 6
   },
   {
     id: 11, name: "Set Qirinj me Aromë (4 copë)", category: "dekor-shtepie",
-    categoryLabel: "Dekor Shtëpie", price: 2600, oldPrice: 0,
+    categoryLabel: "Dekor Shtëpie", price: 26.00, oldPrice: 0,
     image: "https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=400&h=300&fit=crop",
     description: "Qirinj prej dylli soje me 4 aroma: Vanilje, Lavender, Agrume dhe Linë e Freskët. Djegin pastër deri në 40 orë secili.",
     shipping: 0, badge: "new", stock: 18
   },
   {
     id: 12, name: "Varje Muri Macramé", category: "dekor-shtepie",
-    categoryLabel: "Dekor Shtëpie", price: 3400, oldPrice: 4200,
+    categoryLabel: "Dekor Shtëpie", price: 34.00, oldPrice: 42.00,
     image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&h=300&fit=crop",
     description: "Varje muri e bërë me dorë në stil boho-chic. Shton teksturë dhe ngrohtësi në çdo mur. Çdo copë është unike.",
     shipping: 0, badge: "sale", stock: 4
@@ -192,10 +192,8 @@ function renderProducts() {
   `).join('');
 }
 
-function formatPrice(cents) {
-  // Prices stored in cents (lek * 100) or as integers
-  if (cents >= 1000) return (cents / 100).toFixed(0) + ' €';
-  return cents + ' €';
+function formatPrice(price) {
+  return price.toFixed(2) + ' €';
 }
 
 // ===== HERO PRODUCTS =====
