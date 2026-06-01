@@ -77,9 +77,17 @@
       let itemsHtml = cart.map(item => {
         subtotal += item.price * item.quantity;
         shipping += (item.shipping || 0) * item.quantity;
-        return `<div class="summary-item">
-          <span>${item.name} x${item.quantity}</span>
-          <span>${formatPrice(item.price * item.quantity)}</span>
+        return `<div class="summary-item" style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee;">
+          <div style="flex:1;">
+            <strong>${item.name}</strong><br>
+            <span style="color:#888;font-size:13px;">${formatPrice(item.price)} copa</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <button onclick="changeQty(${item.id}, -1)" style="width:28px;height:28px;border:1px solid #ddd;background:#fff;border-radius:4px;cursor:pointer;font-size:16px;">−</button>
+            <span style="min-width:20px;text-align:center;font-weight:700;">${item.quantity}</span>
+            <button onclick="changeQty(${item.id}, 1)" style="width:28px;height:28px;border:1px solid #ddd;background:#fff;border-radius:4px;cursor:pointer;font-size:16px;">+</button>
+          </div>
+          <div style="min-width:80px;text-align:right;font-weight:700;color:var(--primary);">${formatPrice(item.price * item.quantity)}</div>
         </div>`;
       }).join('');
 
@@ -95,6 +103,17 @@
           <span class="amount">${formatPrice(subtotal + shipping)}</span>
         </div>
       `;
+    }
+
+    function changeQty(id, delta) {
+      let cart = getCart();
+      const item = cart.find(i => i.id === id);
+      if (item) {
+        item.quantity += delta;
+        if (item.quantity <= 0) cart = cart.filter(i => i.id !== id);
+        localStorage.setItem('fatosi_cart', JSON.stringify(cart));
+        renderSummary();
+      }
     }
 
     function placeOrder(e) {
