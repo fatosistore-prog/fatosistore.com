@@ -1,22 +1,6 @@
 {
   "products": [
     {
-      "id": 3,
-      "name": "Lavender Artificiale",
-      "category": "bime-artificiale",
-      "categoryLabel": "BimÃÂÃÂ« Artificiale",
-      "price": 28,
-      "oldPrice": 35,
-      "image": "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=400&h=300&fit=crop",
-      "images": [
-        "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=400&h=300&fit=crop"
-      ],
-      "description": "TufÃÂÃÂ« e bukur lulesh lavande artificiale. E pÃÂÃÂ«rsosur pÃÂÃÂ«r tÃÂÃÂ« shtuar ngjyrÃÂÃÂ« dhe aromÃÂÃÂ« rustike nÃÂÃÂ« kuzhinÃÂÃÂ« ose dhomÃÂÃÂ« gjumi.",
-      "shipping": 0,
-      "badge": "sale",
-      "stock": 15
-    },
-    {
       "id": 4,
       "name": "MakinÃÂÃÂ« Elektrike Audi R8 pÃÂÃÂ«r FÃÂÃÂ«mijÃÂÃÂ«",
       "category": "lodra-femije",
