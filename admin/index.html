@@ -271,6 +271,52 @@
     const PRODUCTS_KEY = 'fatosi_products';
     const ORDERS_KEY = 'fatosi_orders';
 
+    // ===== GITHUB API =====
+    async function loadFromGitHub() {
+      try {
+        const resp = await fetch(GH_API, {
+          headers: { 'Authorization': 'token ' + GH_TOKEN, 'Accept': 'application/vnd.github.v3+json' }
+        });
+        if (resp.ok) {
+          const data = await resp.json();
+          ghSha = data.sha;
+          const content = atob(data.content);
+          const parsed = JSON.parse(content);
+          if (parsed.products && parsed.products.length > 0) {
+            localStorage.setItem(PRODUCTS_KEY, JSON.stringify(parsed.products));
+            sessionStorage.setItem(PRODUCTS_KEY + '_backup', JSON.stringify(parsed.products));
+          }
+          if (parsed.orders) {
+            localStorage.setItem(ORDERS_KEY, JSON.stringify(parsed.orders));
+            sessionStorage.setItem(ORDERS_KEY + '_backup', JSON.stringify(parsed.orders));
+          }
+          return true;
+        }
+      } catch(e) { console.log('GitHub load error:', e); }
+      return false;
+    }
+
+    async function saveToGitHub() {
+      try {
+        const products = getProducts();
+        const orders = getOrders();
+        const data = JSON.stringify({products, orders}, null, 2);
+        const b64 = btoa(unescape(encodeURIComponent(data)));
+        const body = { message: 'Update data', content: b64 };
+        if (ghSha) body.sha = ghSha;
+        const resp = await fetch(GH_API, {
+          method: 'PUT',
+          headers: { 'Authorization': 'token ' + GH_TOKEN, 'Content-Type': 'application/json' },
+          body: JSON.stringify(body)
+        });
+        if (resp.ok) {
+          const result = await resp.json();
+          ghSha = result.content.sha;
+          console.log('Saved to GitHub');
+        }
+      } catch(e) { console.log('GitHub save error:', e); }
+    }
+
     const CATEGORY_LABELS = {
       'bime-artificiale': '🌿 Bimë Artificiale',
       'lodra-femije': '🧸 Lodra për Fëmijë',
