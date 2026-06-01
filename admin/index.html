@@ -177,7 +177,7 @@
     <div class="product-modal">
       <button class="close-btn" onclick="closeProductModal()">✕</button>
       <h2 id="modalTitle">Shto Produkt</h2>
-      <form id="productForm" onsubmit="event.preventDefault(); if(typeof saveProduct==='function') saveProduct(event);">
+      <form id="productForm" onsubmit="event.preventDefault();">
         <input type="hidden" id="editId" value="">
         <div class="form-group">
           <label>Emri i Produktit *</label>
@@ -194,6 +194,7 @@
               <option value="per-femra">👩 Për Femra</option>
               <option value="ditelindja">🎂 Ditëlindja</option>
               <option value="aksion">🔥 Aksion</option>
+            </select>
           </div>
           <div class="form-group">
             <label>Badge</label>
@@ -298,11 +299,14 @@ https://example.com/foto3.jpg"></textarea>
       document.getElementById('passwordInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPassword(); });
       document.getElementById('passwordInput').focus();
       // Attach save button handler
-      document.addEventListener('click', function(e) {
-        if (e.target && e.target.id === 'saveProductBtn') {
+      var saveBtn = document.getElementById('saveProductBtn');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
           saveProduct(e);
-        }
-      });
+        });
+      }
     });
 
     // ===== TABS =====
