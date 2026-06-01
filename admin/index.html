@@ -342,12 +342,21 @@
     
     function exportOrders() {
       const orders = getOrders();
-      const data = JSON.stringify(orders, null, 2);
-      const blob = new Blob([data], {type: 'application/json'});
+      if (orders.length === 0) { alert('Nuk ka perosi per te shkarkuar'); return; }
+      let csv = 'ID,Data,Emri,Mbiemri,Telefoni,Adresa,Produktet,Sasia,Posta,Totali,Statusi
+';
+      orders.forEach(o => {
+        const date = new Date(o.date).toLocaleDateString('sq-AL');
+        const items = o.items.map(i => i.name + ' x' + i.quantity).join('; ');
+        const qty = o.items.reduce((s, i) => s + i.quantity, 0);
+        csv += '"' + o.id + '","' + date + '","' + o.customer.firstName + '","' + o.customer.lastName + '","' + o.customer.phone + '","' + o.customer.address.replace(/"/g, '""') + '","' + items + '",' + qty + ',' + o.shipping.toFixed(2) + ',' + o.total.toFixed(2) + ',"' + (o.status || 'new') + '"
+';
+      });
+      const blob = new Blob(['﻿' + csv], {type: 'text/csv;charset=utf-8;'});
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'fatosi_porosite_' + new Date().toISOString().slice(0,10) + '.json';
+      a.download = 'fatosi_porosite_' + new Date().toISOString().slice(0,10) + '.csv';
       a.click();
       URL.revokeObjectURL(url);
     }
