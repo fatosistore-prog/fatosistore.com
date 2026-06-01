@@ -168,7 +168,15 @@
 
     function buyNowPage() {
       if (!currentProduct) return;
-      addToCart(currentProduct.id, productQty);
+      // Clear cart and add only this product
+      localStorage.setItem('fatosi_cart', JSON.stringify([{
+        id: currentProduct.id,
+        name: currentProduct.name,
+        price: currentProduct.price,
+        shipping: currentProduct.shipping || 0,
+        image: currentProduct.image,
+        quantity: productQty
+      }]));
       window.location.href = 'checkout.html';
     }
 
