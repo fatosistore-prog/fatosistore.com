@@ -258,15 +258,12 @@
   <script>
     // ===== CONFIG =====
     const ADMIN_PASS_B64 = 'S3JlbWJhbmFuamE=';
-    const tkA='github_pat_11CEWPKGY';
-    const tkB='0orovFnfGpERW_KdzDij';
-    const tkC='hXbMoZ0wO4KhH8EhzAYB';
-    const tkD='b7Me4uaitxX8oXbJHGI3DMIWZS1vqCXvE';
-    const GH_TOKEN=tkA+tkB+tkC+tkD;
     const GH_REPO = 'fatosistore-prog/fatosistore.com';
     const GH_FILE = 'data.json';
     const GH_API = 'https://api.github.com/repos/' + GH_REPO + '/contents/' + GH_FILE;
     let ghSha = null;
+    function getGHToken() { return localStorage.getItem('gh_token'); }
+    function setGHToken(t) { localStorage.setItem('gh_token', t); }
     const SESSION_KEY = 'fatosistore_admin_unlocked';
     const PRODUCTS_KEY = 'fatosi_products';
     const ORDERS_KEY = 'fatosi_orders';
@@ -275,7 +272,7 @@
     async function loadFromGitHub() {
       try {
         const resp = await fetch(GH_API, {
-          headers: { 'Authorization': 'token ' + GH_TOKEN, 'Accept': 'application/vnd.github.v3+json' }
+          headers: { 'Authorization': 'token ' + getGHToken(), 'Accept': 'application/vnd.github.v3+json' }
         });
         if (resp.ok) {
           const data = await resp.json();
@@ -306,7 +303,7 @@
         if (ghSha) body.sha = ghSha;
         const resp = await fetch(GH_API, {
           method: 'PUT',
-          headers: { 'Authorization': 'token ' + GH_TOKEN, 'Content-Type': 'application/json' },
+          headers: { 'Authorization': 'token ' + getGHToken(), 'Content-Type': 'application/json' },
           body: JSON.stringify(body)
         });
         if (resp.ok) {
@@ -344,6 +341,13 @@
     function unlockAdmin() {
       document.getElementById('loginOverlay').style.display = 'none';
       document.getElementById('adminContent').classList.add('unlocked');
+      if (!getGHToken()) {
+        var token = prompt('Vendos GitHub Token per sinkronizim: (Krijo te github.com/settings/tokens)');
+        if (token) {
+          setGHToken(token.trim());
+          alert('Token u ruajt! Produktet do sinkronizohen tani.');
+        }
+      }
       loadProducts();
       loadOrders();
     }

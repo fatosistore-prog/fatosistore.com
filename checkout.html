@@ -59,18 +59,14 @@
   </section>
 
   <script>
-    const tkA='github_pat_11CEWPKGY';
-    const tkB='0orovFnfGpERW_KdzDij';
-    const tkC='hXbMoZ0wO4KhH8EhzAYB';
-    const tkD='b7Me4uaitxX8oXbJHGI3DMIWZS1vqCXvE';
-    const GH_TOKEN=tkA+tkB+tkC+tkD;
     const GH_API = 'https://api.github.com/repos/fatosistore-prog/fatosistore.com/contents/data.json';
     let ghSha = null;
+    function getGHToken() { return localStorage.getItem('gh_token'); }
 
     async function saveOrdersToGitHub() {
       try {
         const productsResp = await fetch(GH_API, {
-          headers: { 'Authorization': 'token ' + GH_TOKEN, 'Accept': 'application/vnd.github.v3+json' }
+          headers: { 'Authorization': 'token ' + getGHToken(), 'Accept': 'application/vnd.github.v3+json' }
         });
         let products = [];
         if (productsResp.ok) {
@@ -86,7 +82,7 @@
         if (ghSha) body.sha = ghSha;
         await fetch(GH_API, {
           method: 'PUT',
-          headers: { 'Authorization': 'token ' + GH_TOKEN, 'Content-Type': 'application/json' },
+          headers: { 'Authorization': 'token ' + getGHToken(), 'Content-Type': 'application/json' },
           body: JSON.stringify(body)
         });
         console.log('Order saved to GitHub');
