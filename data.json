@@ -1,33 +1,17 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Bimë Artificiale Bambu",
-      "category": "bime-artificiale",
-      "categoryLabel": "Bimë Artificiale",
-      "price": 45,
-      "oldPrice": 55,
-      "image": "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400&h=300&fit=crop",
-      "images": [
-        "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400&h=300&fit=crop"
-      ],
-      "description": "Bimë artificiale bambuje e bukur që i shton freski çdo dhomeje. Nuk ka nevojë për ujitje — qëndron jeshile gjatë gjithë vitit.",
-      "shipping": 0,
-      "badge": "hot",
-      "stock": 10
-    },
-    {
       "id": 2,
-      "name": "Bimë Monstera Artificiale",
+      "name": "BimÃ« Monstera Artificiale",
       "category": "bime-artificiale",
-      "categoryLabel": "Bimë Artificiale",
+      "categoryLabel": "BimÃ« Artificiale",
       "price": 38,
       "oldPrice": 0,
       "image": "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&h=300&fit=crop"
       ],
-      "description": "Bimë Monstera artificiale me gjethe të mëdha të ndara. Sjell atmosferë tropikale në shtëpinë tuaj.",
+      "description": "BimÃ« Monstera artificiale me gjethe tÃ« mÃ«dha tÃ« ndara. Sjell atmosferÃ« tropikale nÃ« shtÃ«pinÃ« tuaj.",
       "shipping": 0,
       "badge": "new",
       "stock": 8
@@ -36,46 +20,46 @@
       "id": 3,
       "name": "Lavender Artificiale",
       "category": "bime-artificiale",
-      "categoryLabel": "Bimë Artificiale",
+      "categoryLabel": "BimÃ« Artificiale",
       "price": 28,
       "oldPrice": 35,
       "image": "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=400&h=300&fit=crop"
       ],
-      "description": "Tufë e bukur lulesh lavande artificiale. E përsosur për të shtuar ngjyrë dhe aromë rustike në kuzhinë ose dhomë gjumi.",
+      "description": "TufÃ« e bukur lulesh lavande artificiale. E pÃ«rsosur pÃ«r tÃ« shtuar ngjyrÃ« dhe aromÃ« rustike nÃ« kuzhinÃ« ose dhomÃ« gjumi.",
       "shipping": 0,
       "badge": "sale",
       "stock": 15
     },
     {
       "id": 4,
-      "name": "Makinë Elektrike Audi R8 për Fëmijë",
+      "name": "MakinÃ« Elektrike Audi R8 pÃ«r FÃ«mijÃ«",
       "category": "lodra-femije",
-      "categoryLabel": "Lodra për Fëmijë",
+      "categoryLabel": "Lodra pÃ«r FÃ«mijÃ«",
       "price": 89,
       "oldPrice": 110,
       "image": "https://images.unsplash.com/photo-1581235707960-23b7e8b9b8c9?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1581235707960-23b7e8b9b8c9?w=400&h=300&fit=crop"
       ],
-      "description": "Makinë elektrike me telekomandë Audi R8 për fëmijë 2-5 vjeç. Dizajn realist, e lehtë për t'u përdorur dhe e sigurt për brenda shtëpisë.",
+      "description": "MakinÃ« elektrike me telekomandÃ« Audi R8 pÃ«r fÃ«mijÃ« 2-5 vjeÃ§. Dizajn realist, e lehtÃ« pÃ«r t'u pÃ«rdorur dhe e sigurt pÃ«r brenda shtÃ«pisÃ«.",
       "shipping": 5,
       "badge": "hot",
       "stock": 5
     },
     {
       "id": 5,
-      "name": "Jeep 12V për Fëmijë me Pult",
+      "name": "Jeep 12V pÃ«r FÃ«mijÃ« me Pult",
       "category": "lodra-femije",
-      "categoryLabel": "Lodra për Fëmijë",
+      "categoryLabel": "Lodra pÃ«r FÃ«mijÃ«",
       "price": 189,
       "oldPrice": 220,
       "image": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=300&fit=crop"
       ],
-      "description": "Jeep i fuqishëm 12V për fëmijë aventurierë 3-8 vjeç. Me telekomandë prindërore, lojëtar MP3 dhe dritat funksionale.",
+      "description": "Jeep i fuqishÃ«m 12V pÃ«r fÃ«mijÃ« aventurierÃ« 3-8 vjeÃ§. Me telekomandÃ« prindÃ«rore, lojÃ«tar MP3 dhe dritat funksionale.",
       "shipping": 10,
       "badge": "hot",
       "stock": 3
@@ -84,30 +68,30 @@
       "id": 6,
       "name": "Kamion Monster me Pult",
       "category": "lodra-femije",
-      "categoryLabel": "Lodra për Fëmijë",
+      "categoryLabel": "Lodra pÃ«r FÃ«mijÃ«",
       "price": 35,
       "oldPrice": 0,
       "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop"
       ],
-      "description": "Kamion monster me shpejtësi të lartë me rrota gjigante. I përsosur për aventura jashtë rrugës. Ndërtim i qëndrueshëm.",
+      "description": "Kamion monster me shpejtÃ«si tÃ« lartÃ« me rrota gjigante. I pÃ«rsosur pÃ«r aventura jashtÃ« rrugÃ«s. NdÃ«rtim i qÃ«ndrueshÃ«m.",
       "shipping": 5,
       "badge": "",
       "stock": 12
     },
     {
       "id": 7,
-      "name": "Set Blloqe Ndërtimi (200 copë)",
+      "name": "Set Blloqe NdÃ«rtimi (200 copÃ«)",
       "category": "lodra-femije",
-      "categoryLabel": "Lojëra",
+      "categoryLabel": "LojÃ«ra",
       "price": 24,
       "oldPrice": 30,
       "image": "https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?w=400&h=300&fit=crop"
       ],
-      "description": "Set me 200 blloqe me ngjyra që ndihmojnë në zhvillimin e kreativitetit dhe aftësive motorrike. Përputhen me markat kryesore.",
+      "description": "Set me 200 blloqe me ngjyra qÃ« ndihmojnÃ« nÃ« zhvillimin e kreativitetit dhe aftÃ«sive motorrike. PÃ«rputhen me markat kryesore.",
       "shipping": 0,
       "badge": "sale",
       "stock": 20
@@ -116,14 +100,14 @@
       "id": 8,
       "name": "Arush i Madh Plush (80cm)",
       "category": "lodra-femije",
-      "categoryLabel": "Lojëra",
+      "categoryLabel": "LojÃ«ra",
       "price": 32,
       "oldPrice": 0,
       "image": "https://images.unsplash.com/photo-1559715541-5daf8a0296d0?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1559715541-5daf8a0296d0?w=400&h=300&fit=crop"
       ],
-      "description": "Arush i butë dhe i rehatshëm 80cm i lartë. Material cilësor plush. Dhuratë e përsosur për çdo fëmijë.",
+      "description": "Arush i butÃ« dhe i rehatshÃ«m 80cm i lartÃ«. Material cilÃ«sor plush. DhuratÃ« e pÃ«rsosur pÃ«r Ã§do fÃ«mijÃ«.",
       "shipping": 5,
       "badge": "new",
       "stock": 7
@@ -132,62 +116,62 @@
       "id": 9,
       "name": "Puzzle Montessori prej Druri",
       "category": "lodra-femije",
-      "categoryLabel": "Lojëra",
+      "categoryLabel": "LojÃ«ra",
       "price": 18,
       "oldPrice": 0,
       "image": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=300&fit=crop"
       ],
-      "description": "Puzzle edukativ prej druri me parime Montessori. Ndihmon në zhvillimin e aftësive motorike dhe njohjen e formave.",
+      "description": "Puzzle edukativ prej druri me parime Montessori. Ndihmon nÃ« zhvillimin e aftÃ«sive motorike dhe njohjen e formave.",
       "shipping": 0,
       "badge": "",
       "stock": 25
     },
     {
       "id": 10,
-      "name": "Set Vazo Qeramike (3 copë)",
+      "name": "Set Vazo Qeramike (3 copÃ«)",
       "category": "dekor-shtepie",
-      "categoryLabel": "Dekor Shtëpie",
+      "categoryLabel": "Dekor ShtÃ«pie",
       "price": 42,
       "oldPrice": 50,
       "image": "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?w=400&h=300&fit=crop"
       ],
-      "description": "Set elegant me 3 vazo qeramike në madhësi të ndryshme. Dizajn minimalist që plotëson çdo stil interieri.",
+      "description": "Set elegant me 3 vazo qeramike nÃ« madhÃ«si tÃ« ndryshme. Dizajn minimalist qÃ« plotÃ«son Ã§do stil interieri.",
       "shipping": 5,
       "badge": "",
       "stock": 6
     },
     {
       "id": 11,
-      "name": "Set Qirinj me Aromë (4 copë)",
+      "name": "Set Qirinj me AromÃ« (4 copÃ«)",
       "category": "dekor-shtepie",
-      "categoryLabel": "Dekor Shtëpie",
+      "categoryLabel": "Dekor ShtÃ«pie",
       "price": 26,
       "oldPrice": 0,
       "image": "https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=400&h=300&fit=crop"
       ],
-      "description": "Qirinj prej dylli soje me 4 aroma: Vanilje, Lavender, Agrume dhe Linë e Freskët. Djegin pastër deri në 40 orë secili.",
+      "description": "Qirinj prej dylli soje me 4 aroma: Vanilje, Lavender, Agrume dhe LinÃ« e FreskÃ«t. Djegin pastÃ«r deri nÃ« 40 orÃ« secili.",
       "shipping": 0,
       "badge": "new",
       "stock": 18
     },
     {
       "id": 12,
-      "name": "Varje Muri Macramé",
+      "name": "Varje Muri MacramÃ©",
       "category": "dekor-shtepie",
-      "categoryLabel": "Dekor Shtëpie",
+      "categoryLabel": "Dekor ShtÃ«pie",
       "price": 34,
       "oldPrice": 42,
       "image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&h=300&fit=crop"
       ],
-      "description": "Varje muri e bërë me dorë në stil boho-chic. Shton teksturë dhe ngrohtësi në çdo mur. Çdo copë është unike.",
+      "description": "Varje muri e bÃ«rÃ« me dorÃ« nÃ« stil boho-chic. Shton teksturÃ« dhe ngrohtÃ«si nÃ« Ã§do mur. Ãdo copÃ« Ã«shtÃ« unike.",
       "shipping": 0,
       "badge": "sale",
       "stock": 4
