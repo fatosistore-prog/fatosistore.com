@@ -227,16 +227,17 @@
           </div>
         </div>
         <div class="form-group">
-          <label>Foto URL *</label>
-          <input type="url" id="pImage" required placeholder="https://example.com/foto.jpg" oninput="previewImage(this.value)">
+          <label>Foto *</label>
+          <input type="file" id="pImageFile" accept="image/*" required onchange="handleImageUpload(this)" style="padding:10px;border:2px dashed var(--border);border-radius:var(--radius-sm);width:100%;cursor:pointer;">
+          <input type="hidden" id="pImage" value="">
           <img id="imgPreview" class="image-preview" style="display:none;">
-          <p style="font-size:12px; color:var(--text-muted); margin-top:4px;">Vendos URL-në e fotos (mund ta ngarkosh në Imgur.com dhe ta kopjosh linkun)</p>
-        <div class="form-group">
-          <label>Foto Shtesë (URL, një për rresht)</label>
-          <textarea id="pImages" placeholder="https://example.com/foto2.jpg
-https://example.com/foto3.jpg"></textarea>
-          <p style="font-size:12px; color:var(--text-muted); margin-top:4px;">Një URL për rresht. Linja e parë është fotoja kryesore.</p>
+          <p style="font-size:12px; color:var(--text-muted); margin-top:4px;">Zgjidh foton nga kompjuteri ose telefoni</p>
         </div>
+        <div class="form-group">
+          <label>Foto Shtesë</label>
+          <input type="file" id="pExtraImages" accept="image/*" multiple onchange="handleExtraImagesUpload(this)" style="padding:10px;border:2px dashed var(--border);border-radius:var(--radius-sm);width:100%;cursor:pointer;">
+          <div id="extraImagesPreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;"></div>
+          <p style="font-size:12px; color:var(--text-muted); margin-top:4px;">Zgjidh foto shtesë (mund te zgjedhesh disa)</p>
         </div>
         <div class="form-group">
           <label>Përshkrimi</label>
@@ -365,6 +366,9 @@ https://example.com/foto3.jpg"></textarea>
       document.getElementById('editId').value = '';
       document.getElementById('modalTitle').textContent = '➕ Shto Produkt të Ri';
       document.getElementById('productForm').reset();
+      extraImages = [];
+      document.getElementById('extraImagesPreview').innerHTML = '';
+      document.getElementById('imgPreview').style.display = 'none';
       document.getElementById('pShipping').value = '0';
       document.getElementById('pStock').value = '10';
       document.getElementById('imgPreview').style.display = 'none';
@@ -384,6 +388,8 @@ https://example.com/foto3.jpg"></textarea>
       document.getElementById('pShipping').value = product.shipping || 0;
       document.getElementById('pStock').value = product.stock || 0;
       document.getElementById('pImage').value = product.image;
+      extraImages = product.images || [];
+      document.getElementById('extraImagesPreview').innerHTML = extraImages.map(img => '<img src="' + img + '" style="width:80px;height:80px;object-fit:cover;border-radius:8px;border:2px solid var(--border);">').join('');
       document.getElementById('pDescription').value = product.description || '';
       previewImage(product.image);
       document.getElementById('productModal').classList.add('show');
@@ -391,6 +397,41 @@ https://example.com/foto3.jpg"></textarea>
 
     function closeProductModal() {
       document.getElementById('productModal').classList.remove('show');
+    }
+
+    let extraImages = [];
+
+    function handleImageUpload(input) {
+      const file = input.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const base64 = e.target.result;
+        document.getElementById('pImage').value = base64;
+        const img = document.getElementById('imgPreview');
+        img.src = base64;
+        img.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleExtraImagesUpload(input) {
+      const files = input.files;
+      const preview = document.getElementById('extraImagesPreview');
+      preview.innerHTML = '';
+      extraImages = [];
+      for (let i = 0; i < files.length; i++) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const base64 = e.target.result;
+          extraImages.push(base64);
+          const img = document.createElement('img');
+          img.src = base64;
+          img.style.cssText = 'width:80px;height:80px;object-fit:cover;border-radius:8px;border:2px solid var(--border);';
+          preview.appendChild(img);
+        };
+        reader.readAsDataURL(files[i]);
+      }
     }
 
     function previewImage(url) {
