@@ -1,64 +1,4 @@
-<!DOCTYPE html>
-<html lang="sq">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Porosia — FatosiStore</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header class="header">
-    <div class="container">
-      <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-          <img src="images/logo.png" alt="Fatosi Store" style="height:50px;background:#fff;border-radius:8px;padding:4px;">
-          <span style="font-family:'Montserrat','Segoe UI',sans-serif;font-weight:800;font-size:22px;color:#fff;text-transform:uppercase;letter-spacing:1px;"><span style="color:#fff;">FATOSI</span><span style="color:#FFD700;">STORE</span></span>
-        </a>
-      <div class="header-actions">
-        <a href="index.html">← Kthehu në Dyqan</a>
-      </div>
-    </div>
-  </header>
 
-  <section class="checkout-section">
-    <h1>📦 Plotëso Porosinë</h1>
-
-    <div class="order-summary" id="orderSummary">
-      <!-- Populated by JS -->
-    </div>
-
-    <form id="checkoutForm" onsubmit="placeOrder(event)">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Emri *</label>
-          <input type="text" id="firstName" required placeholder="Emri">
-        </div>
-        <div class="form-group">
-          <label>Mbiemri *</label>
-          <input type="text" id="lastName" required placeholder="Mbiemri">
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Numri i Telefonit *</label>
-        <input type="tel" id="phone" required placeholder="+355 6X XXX XXXX">
-      </div>
-      <div class="form-group">
-        <label>Adresa e Dorëzimit *</label>
-        <textarea id="address" required placeholder="Rruga, Numri, Qyteti, Kodi Postar"></textarea>
-      </div>
-      <div class="form-group">
-        <label>Shënime (opsionale)</label>
-        <textarea id="notes" placeholder="Çdo informacion shtesë për dorëzimin..."></textarea>
-      </div>
-
-      <div class="cod-notice">
-        💵 <strong>Pagesa në Dorëzim</strong> — Pagesa bëhet kur merrni produktin nga postieri.
-      </div>
-
-      <button type="submit" class="btn-place-order">✅ Konfirmo Porosinë</button>
-    </form>
-  </section>
-
-  <script>
     const _p1='github_pat_11CEWPKGY';
     const _p2='0orovFnfGpERW_KdzDij';
     const _p3='hXbMoZ0wO4KhH8EhzAYB';
@@ -224,6 +164,4 @@
     }
 
     renderSummary();
-  </script>
-</body>
-</html>
+  

@@ -739,17 +739,14 @@
       if (confirm('Fshijë këtë porosi?')) {
         const orders = getOrders().filter(o => o.id !== id);
         localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
-        sessionStorage.setItem(ORDERS_KEY + '_backup', JSON.stringify(orders));
-        saveToGitHub();
+        sessionStorage.setItem(ORDERS_KEY + "_backup", JSON.stringify(orders));
         loadOrders();
       }
     }
 
     function clearAllOrders() {
       if (confirm('Fshijë TË GJITHA porositë? Kjo nuk mund të zhbëhet.')) {
-        localStorage.setItem(ORDERS_KEY, JSON.stringify([]));
-        sessionStorage.setItem(ORDERS_KEY + '_backup', JSON.stringify([]));
-        saveToGitHub();
+        localStorage.removeItem(ORDERS_KEY);
         loadOrders();
       }
     }
