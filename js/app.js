@@ -121,6 +121,20 @@ function saveProducts(products) {
   localStorage.setItem('fatosi_products', JSON.stringify(products));
 }
 
+// Sync products from GitHub on every page load
+(function syncFromGitHub() {
+  fetch('https://raw.githubusercontent.com/fatosistore-prog/fatosistore.com/main/data.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.products && data.products.length > 0) {
+        localStorage.setItem('fatosi_products', JSON.stringify(data.products));
+        // Re-render if function exists
+        if (typeof renderProducts === 'function') renderProducts();
+      }
+    })
+    .catch(function() {});
+})();
+
 function getCart() {
   return JSON.parse(localStorage.getItem('fatosi_cart') || '[]');
 }
