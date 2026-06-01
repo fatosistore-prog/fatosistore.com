@@ -4,46 +4,46 @@
       "id": 3,
       "name": "Lavender Artificiale",
       "category": "bime-artificiale",
-      "categoryLabel": "BimÃÂ« Artificiale",
+      "categoryLabel": "BimÃÂÃÂ« Artificiale",
       "price": 28,
       "oldPrice": 35,
       "image": "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=400&h=300&fit=crop"
       ],
-      "description": "TufÃÂ« e bukur lulesh lavande artificiale. E pÃÂ«rsosur pÃÂ«r tÃÂ« shtuar ngjyrÃÂ« dhe aromÃÂ« rustike nÃÂ« kuzhinÃÂ« ose dhomÃÂ« gjumi.",
+      "description": "TufÃÂÃÂ« e bukur lulesh lavande artificiale. E pÃÂÃÂ«rsosur pÃÂÃÂ«r tÃÂÃÂ« shtuar ngjyrÃÂÃÂ« dhe aromÃÂÃÂ« rustike nÃÂÃÂ« kuzhinÃÂÃÂ« ose dhomÃÂÃÂ« gjumi.",
       "shipping": 0,
       "badge": "sale",
       "stock": 15
     },
     {
       "id": 4,
-      "name": "MakinÃÂ« Elektrike Audi R8 pÃÂ«r FÃÂ«mijÃÂ«",
+      "name": "MakinÃÂÃÂ« Elektrike Audi R8 pÃÂÃÂ«r FÃÂÃÂ«mijÃÂÃÂ«",
       "category": "lodra-femije",
-      "categoryLabel": "Lodra pÃÂ«r FÃÂ«mijÃÂ«",
+      "categoryLabel": "Lodra pÃÂÃÂ«r FÃÂÃÂ«mijÃÂÃÂ«",
       "price": 89,
       "oldPrice": 110,
       "image": "https://images.unsplash.com/photo-1581235707960-23b7e8b9b8c9?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1581235707960-23b7e8b9b8c9?w=400&h=300&fit=crop"
       ],
-      "description": "MakinÃÂ« elektrike me telekomandÃÂ« Audi R8 pÃÂ«r fÃÂ«mijÃÂ« 2-5 vjeÃÂ§. Dizajn realist, e lehtÃÂ« pÃÂ«r t'u pÃÂ«rdorur dhe e sigurt pÃÂ«r brenda shtÃÂ«pisÃÂ«.",
+      "description": "MakinÃÂÃÂ« elektrike me telekomandÃÂÃÂ« Audi R8 pÃÂÃÂ«r fÃÂÃÂ«mijÃÂÃÂ« 2-5 vjeÃÂÃÂ§. Dizajn realist, e lehtÃÂÃÂ« pÃÂÃÂ«r t'u pÃÂÃÂ«rdorur dhe e sigurt pÃÂÃÂ«r brenda shtÃÂÃÂ«pisÃÂÃÂ«.",
       "shipping": 5,
       "badge": "hot",
       "stock": 5
     },
     {
       "id": 5,
-      "name": "Jeep 12V pÃÂ«r FÃÂ«mijÃÂ« me Pult",
+      "name": "Jeep 12V pÃÂÃÂ«r FÃÂÃÂ«mijÃÂÃÂ« me Pult",
       "category": "lodra-femije",
-      "categoryLabel": "Lodra pÃÂ«r FÃÂ«mijÃÂ«",
+      "categoryLabel": "Lodra pÃÂÃÂ«r FÃÂÃÂ«mijÃÂÃÂ«",
       "price": 189,
       "oldPrice": 220,
       "image": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=300&fit=crop"
       ],
-      "description": "Jeep i fuqishÃÂ«m 12V pÃÂ«r fÃÂ«mijÃÂ« aventurierÃÂ« 3-8 vjeÃÂ§. Me telekomandÃÂ« prindÃÂ«rore, lojÃÂ«tar MP3 dhe dritat funksionale.",
+      "description": "Jeep i fuqishÃÂÃÂ«m 12V pÃÂÃÂ«r fÃÂÃÂ«mijÃÂÃÂ« aventurierÃÂÃÂ« 3-8 vjeÃÂÃÂ§. Me telekomandÃÂÃÂ« prindÃÂÃÂ«rore, lojÃÂÃÂ«tar MP3 dhe dritat funksionale.",
       "shipping": 10,
       "badge": "hot",
       "stock": 3
@@ -52,30 +52,30 @@
       "id": 6,
       "name": "Kamion Monster me Pult",
       "category": "lodra-femije",
-      "categoryLabel": "Lodra pÃÂ«r FÃÂ«mijÃÂ«",
+      "categoryLabel": "Lodra pÃÂÃÂ«r FÃÂÃÂ«mijÃÂÃÂ«",
       "price": 35,
       "oldPrice": 0,
       "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop"
       ],
-      "description": "Kamion monster me shpejtÃÂ«si tÃÂ« lartÃÂ« me rrota gjigante. I pÃÂ«rsosur pÃÂ«r aventura jashtÃÂ« rrugÃÂ«s. NdÃÂ«rtim i qÃÂ«ndrueshÃÂ«m.",
+      "description": "Kamion monster me shpejtÃÂÃÂ«si tÃÂÃÂ« lartÃÂÃÂ« me rrota gjigante. I pÃÂÃÂ«rsosur pÃÂÃÂ«r aventura jashtÃÂÃÂ« rrugÃÂÃÂ«s. NdÃÂÃÂ«rtim i qÃÂÃÂ«ndrueshÃÂÃÂ«m.",
       "shipping": 5,
       "badge": "",
       "stock": 12
     },
     {
       "id": 7,
-      "name": "Set Blloqe NdÃÂ«rtimi (200 copÃÂ«)",
+      "name": "Set Blloqe NdÃÂÃÂ«rtimi (200 copÃÂÃÂ«)",
       "category": "lodra-femije",
-      "categoryLabel": "LojÃÂ«ra",
+      "categoryLabel": "LojÃÂÃÂ«ra",
       "price": 24,
       "oldPrice": 30,
       "image": "https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?w=400&h=300&fit=crop"
       ],
-      "description": "Set me 200 blloqe me ngjyra qÃÂ« ndihmojnÃÂ« nÃÂ« zhvillimin e kreativitetit dhe aftÃÂ«sive motorrike. PÃÂ«rputhen me markat kryesore.",
+      "description": "Set me 200 blloqe me ngjyra qÃÂÃÂ« ndihmojnÃÂÃÂ« nÃÂÃÂ« zhvillimin e kreativitetit dhe aftÃÂÃÂ«sive motorrike. PÃÂÃÂ«rputhen me markat kryesore.",
       "shipping": 0,
       "badge": "sale",
       "stock": 20
@@ -84,14 +84,14 @@
       "id": 8,
       "name": "Arush i Madh Plush (80cm)",
       "category": "lodra-femije",
-      "categoryLabel": "LojÃÂ«ra",
+      "categoryLabel": "LojÃÂÃÂ«ra",
       "price": 32,
       "oldPrice": 0,
       "image": "https://images.unsplash.com/photo-1559715541-5daf8a0296d0?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1559715541-5daf8a0296d0?w=400&h=300&fit=crop"
       ],
-      "description": "Arush i butÃÂ« dhe i rehatshÃÂ«m 80cm i lartÃÂ«. Material cilÃÂ«sor plush. DhuratÃÂ« e pÃÂ«rsosur pÃÂ«r ÃÂ§do fÃÂ«mijÃÂ«.",
+      "description": "Arush i butÃÂÃÂ« dhe i rehatshÃÂÃÂ«m 80cm i lartÃÂÃÂ«. Material cilÃÂÃÂ«sor plush. DhuratÃÂÃÂ« e pÃÂÃÂ«rsosur pÃÂÃÂ«r ÃÂÃÂ§do fÃÂÃÂ«mijÃÂÃÂ«.",
       "shipping": 5,
       "badge": "new",
       "stock": 7
@@ -100,62 +100,62 @@
       "id": 9,
       "name": "Puzzle Montessori prej Druri",
       "category": "lodra-femije",
-      "categoryLabel": "LojÃÂ«ra",
+      "categoryLabel": "LojÃÂÃÂ«ra",
       "price": 18,
       "oldPrice": 0,
       "image": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=300&fit=crop"
       ],
-      "description": "Puzzle edukativ prej druri me parime Montessori. Ndihmon nÃÂ« zhvillimin e aftÃÂ«sive motorike dhe njohjen e formave.",
+      "description": "Puzzle edukativ prej druri me parime Montessori. Ndihmon nÃÂÃÂ« zhvillimin e aftÃÂÃÂ«sive motorike dhe njohjen e formave.",
       "shipping": 0,
       "badge": "",
       "stock": 25
     },
     {
       "id": 10,
-      "name": "Set Vazo Qeramike (3 copÃÂ«)",
+      "name": "Set Vazo Qeramike (3 copÃÂÃÂ«)",
       "category": "dekor-shtepie",
-      "categoryLabel": "Dekor ShtÃÂ«pie",
+      "categoryLabel": "Dekor ShtÃÂÃÂ«pie",
       "price": 42,
       "oldPrice": 50,
       "image": "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?w=400&h=300&fit=crop"
       ],
-      "description": "Set elegant me 3 vazo qeramike nÃÂ« madhÃÂ«si tÃÂ« ndryshme. Dizajn minimalist qÃÂ« plotÃÂ«son ÃÂ§do stil interieri.",
+      "description": "Set elegant me 3 vazo qeramike nÃÂÃÂ« madhÃÂÃÂ«si tÃÂÃÂ« ndryshme. Dizajn minimalist qÃÂÃÂ« plotÃÂÃÂ«son ÃÂÃÂ§do stil interieri.",
       "shipping": 5,
       "badge": "",
       "stock": 6
     },
     {
       "id": 11,
-      "name": "Set Qirinj me AromÃÂ« (4 copÃÂ«)",
+      "name": "Set Qirinj me AromÃÂÃÂ« (4 copÃÂÃÂ«)",
       "category": "dekor-shtepie",
-      "categoryLabel": "Dekor ShtÃÂ«pie",
+      "categoryLabel": "Dekor ShtÃÂÃÂ«pie",
       "price": 26,
       "oldPrice": 0,
       "image": "https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=400&h=300&fit=crop"
       ],
-      "description": "Qirinj prej dylli soje me 4 aroma: Vanilje, Lavender, Agrume dhe LinÃÂ« e FreskÃÂ«t. Djegin pastÃÂ«r deri nÃÂ« 40 orÃÂ« secili.",
+      "description": "Qirinj prej dylli soje me 4 aroma: Vanilje, Lavender, Agrume dhe LinÃÂÃÂ« e FreskÃÂÃÂ«t. Djegin pastÃÂÃÂ«r deri nÃÂÃÂ« 40 orÃÂÃÂ« secili.",
       "shipping": 0,
       "badge": "new",
       "stock": 18
     },
     {
       "id": 12,
-      "name": "Varje Muri MacramÃÂ©",
+      "name": "Varje Muri MacramÃÂÃÂ©",
       "category": "dekor-shtepie",
-      "categoryLabel": "Dekor ShtÃÂ«pie",
+      "categoryLabel": "Dekor ShtÃÂÃÂ«pie",
       "price": 34,
       "oldPrice": 42,
       "image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&h=300&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&h=300&fit=crop"
       ],
-      "description": "Varje muri e bÃÂ«rÃÂ« me dorÃÂ« nÃÂ« stil boho-chic. Shton teksturÃÂ« dhe ngrohtÃÂ«si nÃÂ« ÃÂ§do mur. ÃÂdo copÃÂ« ÃÂ«shtÃÂ« unike.",
+      "description": "Varje muri e bÃÂÃÂ«rÃÂÃÂ« me dorÃÂÃÂ« nÃÂÃÂ« stil boho-chic. Shton teksturÃÂÃÂ« dhe ngrohtÃÂÃÂ«si nÃÂÃÂ« ÃÂÃÂ§do mur. ÃÂÃÂdo copÃÂÃÂ« ÃÂÃÂ«shtÃÂÃÂ« unike.",
       "shipping": 0,
       "badge": "sale",
       "stock": 4
