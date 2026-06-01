@@ -131,6 +131,8 @@
           </div>
           <div style="display:flex; gap:8px;">
             <button class="btn-secondary" onclick="resetProducts()">🔄 Rikthe Default</button>
+            <button class="btn-secondary" onclick="exportProducts()">📥 Shkarko</button>
+            <button class="btn-secondary" onclick="importProducts()">📤 Ngarko</button>
             <button class="btn-primary" onclick="openAddProduct()">+ Shto Produkt</button>
           </div>
         </div>
@@ -319,8 +321,59 @@
     }
 
     // ===== PRODUCTS =====
-    function getProducts() { return JSON.parse(localStorage.getItem(PRODUCTS_KEY) || '[]'); }
-    function saveProducts(products) { localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products)); }
+    function getProducts() { 
+      let products = JSON.parse(localStorage.getItem(PRODUCTS_KEY) || '[]');
+      // If localStorage is empty, try sessionStorage backup
+      if (products.length === 0) {
+        const backup = sessionStorage.getItem(PRODUCTS_KEY + '_backup');
+        if (backup) {
+          products = JSON.parse(backup);
+          localStorage.setItem(PRODUCTS_KEY, backup);
+        }
+      }
+      return products;
+    }
+    function saveProducts(products) { 
+      localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products)); 
+      sessionStorage.setItem(PRODUCTS_KEY + '_backup', JSON.stringify(products));
+    }
+    
+    function exportProducts() {
+      const products = getProducts();
+      const data = JSON.stringify(products, null, 2);
+      const blob = new Blob([data], {type: 'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'fatosi_produktet_' + new Date().toISOString().slice(0,10) + '.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    
+    function importProducts() {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = '.json';
+      input.onchange = function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+          try {
+            const products = JSON.parse(ev.target.result);
+            if (Array.isArray(products)) {
+              saveProducts(products);
+              loadProducts();
+              alert('Produktet u importuan! (' + products.length + ' produkte)');
+            }
+          } catch(err) {
+            alert('Gabim ne skedar');
+          }
+        };
+        reader.readAsText(file);
+      };
+      input.click();
+    }
 
     function formatPrice(price) {
       return price.toFixed(2) + ' €';

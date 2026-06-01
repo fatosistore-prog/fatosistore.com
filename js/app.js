@@ -106,6 +106,12 @@ const DEFAULT_PRODUCTS = [
 function getProducts() {
   const stored = localStorage.getItem('fatosi_products');
   if (stored) return JSON.parse(stored);
+  // Try sessionStorage backup
+  const backup = sessionStorage.getItem('fatosi_products_backup');
+  if (backup) {
+    localStorage.setItem('fatosi_products', backup);
+    return JSON.parse(backup);
+  }
   // Initialize with defaults
   localStorage.setItem('fatosi_products', JSON.stringify(DEFAULT_PRODUCTS));
   return DEFAULT_PRODUCTS;
