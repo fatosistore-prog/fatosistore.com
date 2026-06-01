@@ -147,6 +147,7 @@
       const orders = getOrders();
       orders.push(order);
       localStorage.setItem('fatosi_orders', JSON.stringify(orders));
+      sessionStorage.setItem('fatosi_orders_backup', JSON.stringify(orders));
       localStorage.removeItem('fatosi_cart');
       // Send Telegram notification
       sendTelegramNotification(order);

@@ -165,6 +165,8 @@
       <div class="tab-content" id="tab-orders">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
           <span id="order-count" style="font-weight:600; color:var(--text-light);"></span>
+          <button class="btn-secondary" onclick="exportOrders()">📥 Shkarko Porosite</button>
+          <button class="btn-secondary" onclick="importOrders()">📤 Ngarko Porosite</button>
           <button class="btn-danger" onclick="clearAllOrders()">🗑️ Fshi të Gjitha</button>
         </div>
         <div class="stats-bar" id="stats-bar"></div>
@@ -338,6 +340,44 @@
       sessionStorage.setItem(PRODUCTS_KEY + '_backup', JSON.stringify(products));
     }
     
+    function exportOrders() {
+      const orders = getOrders();
+      const data = JSON.stringify(orders, null, 2);
+      const blob = new Blob([data], {type: 'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'fatosi_porosite_' + new Date().toISOString().slice(0,10) + '.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    
+    function importOrders() {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = '.json';
+      input.onchange = function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+          try {
+            const orders = JSON.parse(ev.target.result);
+            if (Array.isArray(orders)) {
+              localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
+              sessionStorage.setItem(ORDERS_KEY + '_backup', JSON.stringify(orders));
+              loadOrders();
+              alert('Porosite u importuan! (' + orders.length + ' porosi)');
+            }
+          } catch(err) {
+            alert('Gabim ne skedar');
+          }
+        };
+        reader.readAsText(file);
+      };
+      input.click();
+    }
+
     function exportProducts() {
       const products = getProducts();
       const data = JSON.stringify(products, null, 2);
@@ -625,6 +665,7 @@
       if (order) {
         order.status = status;
         localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
+        sessionStorage.setItem(ORDERS_KEY + "_backup", JSON.stringify(orders));
         loadOrders();
       }
     }
@@ -633,6 +674,7 @@
       if (confirm('Fshijë këtë porosi?')) {
         const orders = getOrders().filter(o => o.id !== id);
         localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
+        sessionStorage.setItem(ORDERS_KEY + "_backup", JSON.stringify(orders));
         loadOrders();
       }
     }
