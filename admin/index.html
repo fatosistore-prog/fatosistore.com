@@ -470,7 +470,7 @@
         shipping: parseFloat(document.getElementById('pShipping').value) || 0,
         stock: parseInt(document.getElementById('pStock').value) || 0,
         image: document.getElementById('pImage').value,
-        images: document.getElementById('pImages').value.split('\n').filter(u => u.trim()),
+        images: extraImages.length > 0 ? extraImages : (document.getElementById('pImage').value ? [document.getElementById('pImage').value] : []),
         description: document.getElementById('pDescription').value
       };
 
